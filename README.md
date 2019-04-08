@@ -10,5 +10,6 @@ Geplant sind:
 * Loottable Editor
 * Asset Library
 
-Sprache: Java
-GUI: JavaFX
+Sprache: Java  
+GUI: JavaFX, [RichTextFX](https://github.com/FXMisc/RichTextFX)  
+JSON Parser: [GSON](https://github.com/google/gson)
