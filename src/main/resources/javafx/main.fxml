@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerMain">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Project">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#newproject" text="New" />
+                  <MenuItem mnemonicParsing="false" onAction="#openproject" text="Open">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#saveproject" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#closeproject" text="Close" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#projectsettings" text="Project Settings">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#settings" text="Settings" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Generators">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Item NBT Generator" />
+                  <MenuItem mnemonicParsing="false" text="Entity NBT Generator" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Assets">
+               <content>
+                  <AnchorPane fx:id="assetsTab">
+                     <children>
+                        <SubScene fx:id="assetsScene" height="200.0" width="200.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Functions">
+               <content>
+                  <AnchorPane fx:id="functionTab">
+                     <children>
+                        <SubScene fx:id="functionScene" height="200.0" width="200.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Recipes">
+               <content>
+                  <AnchorPane fx:id="recipesTab">
+                     <children>
+                        <SubScene fx:id="recipesScene" height="200.0" width="200.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Advancements">
+               <content>
+                  <AnchorPane fx:id="advancementsTab">
+                     <children>
+                        <SubScene fx:id="advancementsScene" height="200.0" width="200.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Loottables">
+               <content>
+                  <AnchorPane fx:id="loottablesTab">
+                     <children>
+                        <SubScene fx:id="loottablesScene" height="200.0" width="200.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
