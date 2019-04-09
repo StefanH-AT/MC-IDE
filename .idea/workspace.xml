@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ae7db90-2c1c-4d92-bf07-8ae12940b7f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-exported-files.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Resources.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAdvancements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAssets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerFunctions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerLootTables.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Enchantment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Tool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/json/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/advancements.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/assets.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/functions.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/loottables.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/recipes.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/MainApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -62,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+            <state relative-caret-position="505">
+              <caret line="84" column="24" lean-forward="true" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1959#1960#0" expanded="true" />
@@ -91,12 +60,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="20" column="84" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+            <state relative-caret-position="230">
+              <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1026#1027#0" expanded="true" />
-                <element signature="e#1089#1090#0" expanded="true" />
+                <element signature="e#1132#1133#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,18 +75,23 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAssets.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#230#231#0" expanded="true" />
+                <element signature="e#270#271#0" expanded="true" />
+                <element signature="e#302#303#0" expanded="true" />
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#408#409#0" expanded="true" />
+                <element signature="e#444#445#0" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#548#549#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#634#635#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#730#731#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="221">
+              <caret line="38" column="63" lean-forward="true" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,7 +135,6 @@
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectRoot.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Enchantments.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Tool.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Enchantment.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Resources.java" />
         <option value="$PROJECT_DIR$/src/main/resources/javafx/functions.fxml" />
@@ -172,11 +145,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/javafx/assets.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/json/Settings.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAssets.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/MainApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Enchantment.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" />
       </list>
     </option>
@@ -246,6 +220,15 @@
               <item name="mcide" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MC-IDE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MC-IDE" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcide" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MC-IDE" type="b2602c69:ProjectViewProjectNode" />
@@ -348,7 +331,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554800501800</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="dfsggdg">
+      <created>1554838648008</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554838648008</updated>
+    </task>
+    <task id="LOCAL-00004" summary="dfsggdg">
+      <created>1554839201759</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554839201759</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -358,15 +355,15 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="2" weight="0.19263457" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.21529745" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.21529745" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.2592068" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -444,17 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Enchantment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding>
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -551,38 +537,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAssets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/main.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="96" column="52" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -596,10 +555,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/enums/Enchantment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+            <element signature="e#1444#1445#0" expanded="true" />
+            <element signature="e#1472#1473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAssets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="38" column="63" lean-forward="true" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -608,8 +600,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+        <state relative-caret-position="505">
+          <caret line="84" column="24" lean-forward="true" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1959#1960#0" expanded="true" />
@@ -622,14 +614,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/json/ProjectConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#230#231#0" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="20" column="84" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+        <state relative-caret-position="230">
+          <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
           </folding>
         </state>
       </provider>

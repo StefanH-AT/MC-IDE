@@ -15,10 +15,10 @@ public class Project {
 
     public static void newProject(String name, String author, int version, String... namespaces) {
         currentProject = new ProjectConfig();
-        currentProject.name = name;
-        currentProject.author = author;
-        currentProject.version = version;
-        currentProject.namespaces = new ArrayList<>(Arrays.asList(namespaces));
+        currentProject.setName(name);
+        currentProject.setAuthor(author);
+        currentProject.setVersion(version);
+        currentProject.setNamespaces(new ArrayList<>(Arrays.asList(namespaces)));
 
         save();
     }
@@ -42,6 +42,6 @@ public class Project {
     }
 
     public static String getProjectDir() {
-        return GlobalSettings.getSettings().getMcDir() + "/ide/";
+        return GlobalSettings.getSettings().getMcDir() + "/ide/" + currentProject.getName();
     }
 }
