@@ -4,7 +4,6 @@ import at.tewan.mcide.Resources;
 import at.tewan.mcide.project.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.SubScene;
 import javafx.scene.layout.AnchorPane;
 
@@ -53,7 +52,7 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private void newproject() {
-        Project.newProject("test", "Tewan", 1132, "test");
+        Project.newProject("test", "Tewan", 132, "test");
     }
 
     @FXML

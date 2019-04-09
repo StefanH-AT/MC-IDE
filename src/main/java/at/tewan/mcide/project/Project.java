@@ -18,14 +18,16 @@ public class Project {
         currentProject.name = name;
         currentProject.author = author;
         currentProject.version = version;
-        currentProject.namespaces = new ArrayList<String>(Arrays.asList(namespaces));
+        currentProject.namespaces = new ArrayList<>(Arrays.asList(namespaces));
+
+        save();
     }
 
     public static void save() {
         Gson gson = new Gson();
 
         try {
-            FileWriter projectConfigWriter = new FileWriter(getProjectDir() + "project.json");
+            FileWriter projectConfigWriter = new FileWriter(getProjectConfig());
             projectConfigWriter.write(gson.toJson(currentProject));
             projectConfigWriter.close();
 
@@ -33,6 +35,10 @@ public class Project {
             exception.printStackTrace();
         }
 
+    }
+
+    public static String getProjectConfig() {
+        return getProjectDir() + "project.json";
     }
 
     public static String getProjectDir() {
