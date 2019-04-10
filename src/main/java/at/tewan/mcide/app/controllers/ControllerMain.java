@@ -1,6 +1,7 @@
 package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.Resources;
+import at.tewan.mcide.app.NewProjectDialog;
 import at.tewan.mcide.project.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,7 +53,7 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private void newproject() {
-        Project.newProject("test", "Tewan", 132, "test");
+        new NewProjectDialog().show();
     }
 
     @FXML
