@@ -5,6 +5,7 @@ import at.tewan.mcide.settings.GlobalSettings;
 import com.google.gson.Gson;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,9 +29,20 @@ public class Project {
     public static void save() {
         Gson gson = new Gson();
 
+        // ================= ORDNER STRUKTUR ======================
+        createDir("");
+        createDir("res");
+        createDir("data");
+        createDir("data/minecraft");
+        createDir("data/minecraft/tags");
+
+        for(String namespace : currentProject.getNamespaces()) {
+            createDir("data/" + namespace);
+            createDir("res/" + namespace);
+        }
+
+        // ================= PROJECT SETTING DATEI ======================
         try {
-            projectRoot = new File(getProjectDir());
-            if(!projectRoot.exists()) projectRoot.mkdir();
 
             FileWriter projectConfigWriter = new FileWriter(getProjectConfig());
             projectConfigWriter.write(gson.toJson(currentProject));
@@ -42,6 +54,26 @@ public class Project {
             exception.printStackTrace();
         }
 
+    }
+
+    public static void load(String configFile) {
+        Gson gson = new Gson();
+
+        try {
+            ProjectConfig cfg = gson.fromJson(new FileReader(configFile), ProjectConfig.class);
+            currentProject = cfg;
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    private static void createDir(String name) {
+        File f = new File(getProjectDir() + name);
+        if(!f.exists()) f.mkdir();
+    }
+
+    public static String[] getNamespaces() {
+        return currentProject.getNamespaces().toArray(new String[currentProject.getNamespaces().size()]);
     }
 
     public static String getProjectConfig() {

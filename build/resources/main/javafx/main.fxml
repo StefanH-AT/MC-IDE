@@ -42,6 +42,17 @@
                   <MenuItem mnemonicParsing="false" text="Entity NBT Generator" />
               </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Run">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Run">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="F9" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Run Resource Pack" />
+                  <MenuItem mnemonicParsing="false" text="Run Data Pack" />
+               </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
@@ -117,6 +128,19 @@
                      </children>
                   </AnchorPane>
                </content>
+            </Tab>
+            <Tab text="Tags">
+              <content>
+                <AnchorPane fx:id="tagsTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SubScene fx:id="tagsScene" height="200.0" width="200.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
         </tabs>
       </TabPane>

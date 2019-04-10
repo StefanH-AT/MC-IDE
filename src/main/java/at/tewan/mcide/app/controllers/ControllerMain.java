@@ -15,10 +15,10 @@ import java.util.ResourceBundle;
 public class ControllerMain implements Initializable {
 
     @FXML
-    private SubScene assetsScene, functionScene, recipesScene, advancementsScene, loottablesScene;
+    private SubScene assetsScene, functionScene, recipesScene, advancementsScene, loottablesScene, tagsScene;
 
     @FXML
-    private AnchorPane assetsTab, functionTab, recipesTab, advancementsTab, loottablesTab;
+    private AnchorPane assetsTab, functionTab, recipesTab, advancementsTab, loottablesTab, tagsTab;
 
 
     @Override
@@ -38,6 +38,9 @@ public class ControllerMain implements Initializable {
         loottablesScene.widthProperty().bind(loottablesTab.widthProperty());
         loottablesScene.heightProperty().bind(loottablesTab.heightProperty());
 
+        tagsScene.widthProperty().bind(tagsTab.widthProperty());
+        tagsScene.heightProperty().bind(tagsTab.heightProperty());
+
         try {
 
             assetsScene.setRoot(Resources.getFXML("assets"));
@@ -45,6 +48,7 @@ public class ControllerMain implements Initializable {
             recipesScene.setRoot(Resources.getFXML("recipes"));
             advancementsScene.setRoot(Resources.getFXML("advancements"));
             loottablesScene.setRoot(Resources.getFXML("loottables"));
+            tagsScene.setRoot(Resources.getFXML("tags"));
 
         } catch (IOException exception) {
             exception.printStackTrace();

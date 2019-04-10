@@ -7,18 +7,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <SplitPane dividerPositions="0.22" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerAssets">
    <items>
       <VBox>
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNamespace" text="Add Namespace">
+            <Label text="Assets" />
+            <TreeView fx:id="library" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <TreeView fx:id="library" VBox.vgrow="ALWAYS" />
+                  <Insets bottom="10.0" />
+               </VBox.margin></TreeView>
+            <Button mnemonicParsing="false" onAction="#refresh" text="Refresh" />
          </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" />
    </items>

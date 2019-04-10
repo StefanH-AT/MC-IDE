@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerNewProjectDialog">
+   <children>
+      <Label text="New Project">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Separator>
+      <Label text="Project Name" />
+      <TextField fx:id="projectName" promptText="Name of project...">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </TextField>
+      <GridPane hgap="30.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Author" />
+            <Label text="Minecraft Version" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="mcVersion" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="authorName" promptText="Your name" GridPane.rowIndex="1" />
+            <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+            <ListView fx:id="namespaceList" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <TextField fx:id="namespaceInput" onAction="#addnamespace" promptText="New namespace name" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addnamespace" text="Add">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removenamespace" text="Remove">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Label text="Namespaces" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createproject" text="Create Project">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+</VBox>

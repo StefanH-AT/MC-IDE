@@ -1,6 +1,6 @@
 package at.tewan.mcide.app.controllers;
 
-import javafx.event.ActionEvent;
+import at.tewan.mcide.project.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
@@ -14,18 +14,27 @@ public class ControllerAssets implements Initializable {
     @FXML
     private TreeView<String> library;
     private TreeItem<String> libRoot;
-
-
-    @FXML
-    private void addNamespace(ActionEvent e) {
-
-    }
+    private TreeItem<String>[] namespaceRoots;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        libRoot = new TreeItem<>("ProjectConfig");
-
+        libRoot = new TreeItem<>("Namespaces");
+        libRoot.setExpanded(true);
         library.setRoot(libRoot);
+
+    }
+
+    @FXML
+    private void refresh() {
+
+        String[] namespaces = Project.getNamespaces();
+        namespaceRoots = new TreeItem[namespaces.length];
+        for(int i = 0; i < namespaces.length; i++)
+            namespaceRoots[i] = new TreeItem<>(namespaces[i]);
+
+        libRoot.getChildren().clear();
+        libRoot.getChildren().addAll(namespaceRoots);
+
     }
 }

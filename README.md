@@ -9,6 +9,7 @@ Geplant sind:
 * Advancement Editor
 * Loottable Editor
 * Asset Library
+* Tag Editor
 
 Sprache: Java  
 GUI: JavaFX, [RichTextFX](https://github.com/FXMisc/RichTextFX)  

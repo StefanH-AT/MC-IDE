@@ -40,8 +40,9 @@ public class ControllerNewProjectDialog implements Initializable {
         String input = namespaceInput.getText();
         ObservableList<String> list = namespaceList.getItems();
 
-        if(!list.contains(input)) {
+        if(!(list.contains(input) && list.isEmpty())) {
             list.add(input);
+            namespaceInput.clear();
         }
     }
 
