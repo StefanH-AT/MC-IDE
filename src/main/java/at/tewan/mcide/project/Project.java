@@ -3,6 +3,7 @@ package at.tewan.mcide.project;
 import at.tewan.mcide.Resources;
 import at.tewan.mcide.mcfiles.PackDefinition;
 import at.tewan.mcide.project.json.ProjectConfig;
+import at.tewan.mcide.versions.Version;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -17,7 +18,7 @@ public class Project {
     private static ProjectConfig currentProject;
     private static File projectRoot;
 
-    private static PackDefinition resourceDefinitions, dataDefinitions;
+    private static PackDefinition resourceDefinition, dataDefinition;
 
     public static void newProject(String name, String author, int version, String... namespaces) {
         currentProject = new ProjectConfig();
@@ -26,8 +27,9 @@ public class Project {
         currentProject.setVersion(version);
         currentProject.setNamespaces(new ArrayList<>(Arrays.asList(namespaces)));
 
-        resourceDefinitions = new PackDefinition();
-        dataDefinitions = new PackDefinition();
+        String label = "Project: " + name + " By: " + author + " \nMade with MC-IDE";
+        resourceDefinition = new PackDefinition(label, Version.getResourcePackFormat(version));
+        dataDefinition = new PackDefinition(label, Version.getDataPackFormat(version));
 
         save();
     }
@@ -47,32 +49,30 @@ public class Project {
         for(int i = 0; i < currentProject.getNamespaces().size(); i++) {
             String namespace = currentProject.getNamespaces().get(i);
 
-            String namespaceDataDir = getProjectDir() + "data/" + namespace;
-            String namespaceResourceDir = getProjectDir() + "res/" + namespace;
+            String namespaceDataDir = getDataDir() + namespace;
+            String namespaceResourceDir = getResourceDir() + namespace;
 
             createDir(namespaceDataDir);
             createDir(namespaceResourceDir);
-
-            File dataDefinition = new File(namespaceDataDir + "/pack.mcmeta");
-            File resourceDefinition = new File(namespaceResourceDir + "/pack.mcmeta");
-
-            FileWriter dataFileWriter = new FileWriter(dataDefinition);
-            FileWriter resourceFileWriter = new FileWriter(resourceDefinition);
-
-            dataFileWriter.write(gson.toJson(dataDefinitions[i]));
-            resourceFileWriter.write(gson.toJson(resourceDefinitions[i]));
-
-            dataFileWriter.close();
-            resourceFileWriter.close();
         }
 
         // ================= PROJECT SETTING DATEI ======================
-
 
         FileWriter projectConfigWriter = new FileWriter(getProjectConfig());
         projectConfigWriter.write(gson.toJson(currentProject));
         projectConfigWriter.close();
 
+        File dataDefinitionFile = new File(getDataDir() + "pack.mcmeta");
+        File resourceDefinitionFile = new File(getResourceDir() + "pack.mcmeta");
+
+        FileWriter dataFileWriter = new FileWriter(dataDefinitionFile);
+        FileWriter resourceFileWriter = new FileWriter(resourceDefinitionFile);
+
+        dataFileWriter.write(gson.toJson(dataDefinition));
+        resourceFileWriter.write(gson.toJson(resourceDefinition));
+
+        dataFileWriter.close();
+        resourceFileWriter.close();
 
 
         } catch (IOException exception) {
@@ -111,5 +111,13 @@ public class Project {
 
     public static String getProjectDir() {
         return Resources.getWorkspaceDir() + currentProject.getName() + "/";
+    }
+
+    public static String getResourceDir() {
+        return getProjectDir() + "res/";
+    }
+
+    public static String getDataDir() {
+        return getProjectDir() + "data/";
     }
 }

@@ -38,4 +38,16 @@ public class Version {
 
         return toReturn;
     }
+
+    public static int getDataPackFormat(int version) {
+        return 1;
+    }
+
+    public static int getResourcePackFormat(int version) {
+        if(version <= 1092) return 1;
+        if(version <= 1102) return 2;
+        if(version <= 1122) return 3;
+
+        return 4;
+    }
 }

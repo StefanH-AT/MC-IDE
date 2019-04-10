@@ -12,6 +12,13 @@ public class PackDefinition {
         this.pack = pack;
     }
 
+    public PackDefinition(String description, int format) {
+        pack = new Pack();
+
+        pack.setDescription(description);
+        pack.setPack_format(format);
+    }
+
     private class Pack {
         private int pack_format;
         private String description;
