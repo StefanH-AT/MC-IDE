@@ -3,11 +3,14 @@ package at.tewan.mcide.app.controllers;
 import at.tewan.mcide.Resources;
 import at.tewan.mcide.app.NewProjectDialog;
 import at.tewan.mcide.project.Project;
+import at.tewan.mcide.settings.GlobalSettings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -62,7 +65,12 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private void openproject() {
+        FileChooser ch = new FileChooser();
+        ch.setTitle("Select Project");
+        ch.getExtensionFilters().add(new FileChooser.ExtensionFilter("MC-IDE Projct Config", "project.json"));
+        ch.setInitialDirectory(new File(GlobalSettings.getSettings().getMcDir() + "/ide"));
 
+        Project.load(ch.showOpenDialog(assetsScene.getScene().getWindow()).toString());
     }
 
     @FXML

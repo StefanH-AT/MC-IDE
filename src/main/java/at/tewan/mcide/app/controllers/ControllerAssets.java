@@ -14,7 +14,9 @@ public class ControllerAssets implements Initializable {
     @FXML
     private TreeView<String> library;
     private TreeItem<String> libRoot;
-    private TreeItem<String>[] namespaceRoots;
+    private TreeItem[] namespaceRoots;
+    private TreeItem[] resRoots;
+    private TreeItem[] dataRoots;
 
 
     @Override
@@ -29,9 +31,18 @@ public class ControllerAssets implements Initializable {
     private void refresh() {
 
         String[] namespaces = Project.getNamespaces();
+        resRoots = new TreeItem[namespaces.length];
+        dataRoots = new TreeItem[namespaces.length];
         namespaceRoots = new TreeItem[namespaces.length];
-        for(int i = 0; i < namespaces.length; i++)
+
+        for(int i = 0; i < namespaces.length; i++) {
             namespaceRoots[i] = new TreeItem<>(namespaces[i]);
+            resRoots[i] = new TreeItem<>("Resources");
+            dataRoots[i] = new TreeItem<>("Data");
+
+            namespaceRoots[i].getChildren().addAll(resRoots[i], dataRoots[i]);
+        }
+
 
         libRoot.getChildren().clear();
         libRoot.getChildren().addAll(namespaceRoots);

@@ -1,7 +1,8 @@
 package at.tewan.mcide.project;
 
+import at.tewan.mcide.Resources;
+import at.tewan.mcide.mcfiles.PackDefinition;
 import at.tewan.mcide.project.json.ProjectConfig;
-import at.tewan.mcide.settings.GlobalSettings;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -16,6 +17,8 @@ public class Project {
     private static ProjectConfig currentProject;
     private static File projectRoot;
 
+    private static PackDefinition resourceDefinitions, dataDefinitions;
+
     public static void newProject(String name, String author, int version, String... namespaces) {
         currentProject = new ProjectConfig();
         currentProject.setName(name);
@@ -23,11 +26,16 @@ public class Project {
         currentProject.setVersion(version);
         currentProject.setNamespaces(new ArrayList<>(Arrays.asList(namespaces)));
 
+        resourceDefinitions = new PackDefinition();
+        dataDefinitions = new PackDefinition();
+
         save();
     }
 
     public static void save() {
         Gson gson = new Gson();
+
+        try {
 
         // ================= ORDNER STRUKTUR ======================
         createDir("");
@@ -36,17 +44,34 @@ public class Project {
         createDir("data/minecraft");
         createDir("data/minecraft/tags");
 
-        for(String namespace : currentProject.getNamespaces()) {
-            createDir("data/" + namespace);
-            createDir("res/" + namespace);
+        for(int i = 0; i < currentProject.getNamespaces().size(); i++) {
+            String namespace = currentProject.getNamespaces().get(i);
+
+            String namespaceDataDir = getProjectDir() + "data/" + namespace;
+            String namespaceResourceDir = getProjectDir() + "res/" + namespace;
+
+            createDir(namespaceDataDir);
+            createDir(namespaceResourceDir);
+
+            File dataDefinition = new File(namespaceDataDir + "/pack.mcmeta");
+            File resourceDefinition = new File(namespaceResourceDir + "/pack.mcmeta");
+
+            FileWriter dataFileWriter = new FileWriter(dataDefinition);
+            FileWriter resourceFileWriter = new FileWriter(resourceDefinition);
+
+            dataFileWriter.write(gson.toJson(dataDefinitions[i]));
+            resourceFileWriter.write(gson.toJson(resourceDefinitions[i]));
+
+            dataFileWriter.close();
+            resourceFileWriter.close();
         }
 
         // ================= PROJECT SETTING DATEI ======================
-        try {
 
-            FileWriter projectConfigWriter = new FileWriter(getProjectConfig());
-            projectConfigWriter.write(gson.toJson(currentProject));
-            projectConfigWriter.close();
+
+        FileWriter projectConfigWriter = new FileWriter(getProjectConfig());
+        projectConfigWriter.write(gson.toJson(currentProject));
+        projectConfigWriter.close();
 
 
 
@@ -73,7 +98,11 @@ public class Project {
     }
 
     public static String[] getNamespaces() {
-        return currentProject.getNamespaces().toArray(new String[currentProject.getNamespaces().size()]);
+        if(currentProject == null) {
+            return new String[0];
+        } else {
+            return currentProject.getNamespaces().toArray(new String[currentProject.getNamespaces().size()]);
+        }
     }
 
     public static String getProjectConfig() {
@@ -81,6 +110,6 @@ public class Project {
     }
 
     public static String getProjectDir() {
-        return GlobalSettings.getSettings().getMcDir() + "/ide/" + currentProject.getName() + "/";
+        return Resources.getWorkspaceDir() + currentProject.getName() + "/";
     }
 }

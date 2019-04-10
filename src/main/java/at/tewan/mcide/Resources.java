@@ -1,5 +1,7 @@
 package at.tewan.mcide;
 
+import at.tewan.mcide.settings.GlobalSettings;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -18,11 +20,15 @@ public class Resources {
     }
 
     public static Parent getFXML(String name) throws IOException {
-        return new FXMLLoader().load(getLocalResource("javafx/" + name + ".fxml"));
+        return FXMLLoader.load(Resources.class.getResource("/javafx/" + name + ".fxml"));
     }
 
     // TODO Coden
     public static InputStream getProjectResource(String name) {
         return null;
+    }
+
+    public static String getWorkspaceDir() {
+        return GlobalSettings.getSettings().getMcDir() + "/ide/";
     }
 }
