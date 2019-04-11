@@ -110,6 +110,7 @@ public class Project {
     }
 
     public static String getProjectDir() {
+        if(currentProject == null) return null;
         return Resources.getWorkspaceDir() + currentProject.getName() + "/";
     }
 
@@ -119,5 +120,17 @@ public class Project {
 
     public static String getDataDir() {
         return getProjectDir() + "data/";
+    }
+
+    public static String getNamespaceResource(String namespace) {
+        return getResourceDir() + namespace + "/";
+    }
+
+    public static String getNamespaceData(String namespace) {
+        return getDataDir() + namespace + "/";
+    }
+
+    public static String getNamespaceFunctions(String namespace) {
+        return getNamespaceData(namespace) + "functions/";
     }
 }

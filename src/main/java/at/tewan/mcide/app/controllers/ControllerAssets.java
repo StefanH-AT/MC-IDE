@@ -1,51 +1,22 @@
 package at.tewan.mcide.app.controllers;
 
-import at.tewan.mcide.project.Project;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerAssets implements Initializable {
+public class ControllerAssets extends ControllerBrowser {
 
-    @FXML
-    private TreeView<String> library;
-    private TreeItem<String> libRoot;
-    private TreeItem[] namespaceRoots;
-    private TreeItem[] resRoots;
-    private TreeItem[] dataRoots;
 
+    public ControllerAssets() {
+        super("Assets",
+                ControllerBrowser.RESOURCEPACK,
+                new String[]{"textures", "models", "sounds", "lang"},
+                new String[]{"Textures", "Models", "Sounds", "Languages"});
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        libRoot = new TreeItem<>("Namespaces");
-        libRoot.setExpanded(true);
-        library.setRoot(libRoot);
 
-    }
-
-    @FXML
-    private void refresh() {
-
-        String[] namespaces = Project.getNamespaces();
-        resRoots = new TreeItem[namespaces.length];
-        dataRoots = new TreeItem[namespaces.length];
-        namespaceRoots = new TreeItem[namespaces.length];
-
-        for(int i = 0; i < namespaces.length; i++) {
-            namespaceRoots[i] = new TreeItem<>(namespaces[i]);
-            resRoots[i] = new TreeItem<>("Resources");
-            dataRoots[i] = new TreeItem<>("Data");
-
-            namespaceRoots[i].getChildren().addAll(resRoots[i], dataRoots[i]);
-        }
-
-
-        libRoot.getChildren().clear();
-        libRoot.getChildren().addAll(namespaceRoots);
 
     }
 }

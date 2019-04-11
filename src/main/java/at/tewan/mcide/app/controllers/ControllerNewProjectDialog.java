@@ -3,15 +3,14 @@ package at.tewan.mcide.app.controllers;
 import at.tewan.mcide.filters.Filters;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.versions.Version;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
-import java.util.function.UnaryOperator;
 
 public class ControllerNewProjectDialog implements Initializable {
 
@@ -24,6 +23,9 @@ public class ControllerNewProjectDialog implements Initializable {
     @FXML
     private ChoiceBox<String> mcVersion;
 
+    @FXML
+    private Button createProjectButton;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -33,6 +35,10 @@ public class ControllerNewProjectDialog implements Initializable {
 
         namespaceInput.setTextFormatter(Filters.getNamespaceFilter());
         projectName.setTextFormatter(Filters.getNamespaceFilter());
+
+        namespaceList.getItems().addListener((ListChangeListener<String>) event -> {
+            createProjectButton.setDisable(namespaceList.getItems().size() <= 0);
+        });
     }
 
     @FXML
@@ -40,7 +46,7 @@ public class ControllerNewProjectDialog implements Initializable {
         String input = namespaceInput.getText();
         ObservableList<String> list = namespaceList.getItems();
 
-        if(!(list.contains(input) && list.isEmpty())) {
+        if(!(list.contains(input) && namespaceInput.getText().equals(""))) {
             list.add(input);
             namespaceInput.clear();
         }

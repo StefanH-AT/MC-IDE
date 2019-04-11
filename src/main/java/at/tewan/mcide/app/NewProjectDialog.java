@@ -13,7 +13,6 @@ public class NewProjectDialog {
     public NewProjectDialog() {
         stage = new Stage();
         stage.setTitle("Create new Project");
-        stage.setAlwaysOnTop(true);
 
         try {
             stage.setScene(new Scene(Resources.getFXML("newproject")));

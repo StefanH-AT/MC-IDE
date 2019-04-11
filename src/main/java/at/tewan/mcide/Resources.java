@@ -11,10 +11,6 @@ import java.io.InputStream;
 
 public class Resources {
 
-    public void setProjectDestination(File rootDir) {
-
-    }
-
     public static InputStream getLocalResource(String name) {
         return Resources.class.getClassLoader().getResourceAsStream(name);
     }

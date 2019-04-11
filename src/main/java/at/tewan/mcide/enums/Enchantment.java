@@ -3,8 +3,8 @@ package at.tewan.mcide.enums;
 public enum Enchantment {
 
     // Universal
-    UNBREAKING(1000, null),
-    MENDING(1000, null),
+//    UNBREAKING(1000, null),
+//    MENDING(1000, null),
 
     // Schwert und Bogen
     SHARPNESS(1000, Tool.SWORD, Tool.AXE),
