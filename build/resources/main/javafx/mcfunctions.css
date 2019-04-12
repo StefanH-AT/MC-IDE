@@ -1,0 +1,18 @@
+.styled-text-area {
+	-fx-background-color: #121212;
+	-fx-focus-color: #4070A8;
+	-fx-text-fill: #D9D9D9;
+}
+
+.lineno {
+	-fx-fill: #D9D9D9;
+	-fx-background-color: #2E2E2E;
+}
+
+.styled-text-area .comment {
+    -fx-fill: #666666;
+}
+
+.styled-text-area .caret {
+    -fx-stroke: #D9D9D9;
+}

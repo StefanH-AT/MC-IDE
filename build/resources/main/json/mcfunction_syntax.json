@@ -1,0 +1,12 @@
+{
+  "syntax": [
+
+
+    {
+      "pattern": "^#[^\\n]*",
+      "name": "comment"
+    }
+
+
+  ]
+}
