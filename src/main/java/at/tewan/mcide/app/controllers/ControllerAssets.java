@@ -1,6 +1,8 @@
 package at.tewan.mcide.app.controllers;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,6 +19,11 @@ public class ControllerAssets extends ControllerBrowser {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+    }
+
+    @Override
+    protected void openFile(File file) throws IOException {
 
     }
 }

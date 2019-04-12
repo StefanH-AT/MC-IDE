@@ -49,11 +49,25 @@ public class Project {
         for(int i = 0; i < currentProject.getNamespaces().size(); i++) {
             String namespace = currentProject.getNamespaces().get(i);
 
-            String namespaceDataDir = getDataDir() + namespace;
-            String namespaceResourceDir = getResourceDir() + namespace;
+            String namespaceDataDir = "data/" + namespace + "/";
+            String namespaceResourceDir = "res/" + namespace + "/";
+
+            System.out.println(namespaceDataDir);
 
             createDir(namespaceDataDir);
             createDir(namespaceResourceDir);
+
+            createDir(namespaceDataDir + "functions/");
+            createDir(namespaceDataDir + "tags/");
+            createDir(namespaceDataDir + "recipes/");
+            createDir(namespaceDataDir + "functions/");
+            createDir(namespaceDataDir + "loottables/");
+            createDir(namespaceDataDir + "advancements/");
+
+            createDir(namespaceResourceDir + "textures/");
+            createDir(namespaceResourceDir + "sounds/");
+            createDir(namespaceResourceDir + "lang/");
+            createDir(namespaceResourceDir + "models/");
         }
 
         // ================= PROJECT SETTING DATEI ======================

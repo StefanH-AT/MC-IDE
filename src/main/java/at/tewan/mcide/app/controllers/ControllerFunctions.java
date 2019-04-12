@@ -12,8 +12,12 @@ import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.model.StyleSpans;
 import org.fxmisc.richtext.model.StyleSpansBuilder;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
@@ -76,6 +80,14 @@ public class ControllerFunctions extends ControllerBrowser {
             code.setStyleSpans(0, updateSyntaxHighlighting());
         });
 
+    }
+
+    @Override
+    protected void openFile(File file) throws IOException {
+
+        code.clear();
+        for(String line : Files.readAllLines(file.toPath()))
+        code.appendText(line + "\n");
     }
 
     private void changeFontSize(boolean increase) {

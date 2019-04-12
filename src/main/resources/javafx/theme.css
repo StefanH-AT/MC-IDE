@@ -10,6 +10,14 @@
     -fx-background-color: #232323;
 }
 
+.pane {
+    -fx-background-color: #232323;
+}
+
+.split-pane > * {
+    -fx-background-color: #232323;
+}
+
 .button, .choice-box {
     -fx-background-color: #2E2E2E;
 }
@@ -72,18 +80,19 @@
 }
 
 .tab-pane > .tab-header-area > .headers-region {
-    -fx-padding: 0;
+    -fx-padding: 10 0 0 0;
 }
 
-.tab-pane > .tab-header-area > .headers-region > .tab {
+.tab-pane .tab {
     -fx-background-color: #2E2E2E;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
-    -fx-border-color: #363636;
+    -fx-border-color: #363636 #363636 #2E2E2E #363636;
     -fx-focus-color: invisible;
+    -fx-padding: 1 25 3 25;
  }
 
-.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+.tab-pane .tab:selected {
     -fx-background-color: #4070A8;
 }
 
