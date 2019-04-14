@@ -18,7 +18,7 @@ public class ControllerAssets extends ControllerBrowser {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        super.initialize(location, resources);
 
     }
 
