@@ -1,7 +1,9 @@
 package at.tewan.mcide.app;
 
+import at.tewan.mcide.app.controllers.ControllerFunctions;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.CodeArea;
@@ -18,34 +20,34 @@ public class CodeTab extends Tab {
 
     private FeaturedCodeArea area;
     private File file;
+    private TabPane tabPane;
 
     private boolean saved;
 
-    public CodeTab(File initialFile) {
+    private String fileName;
+
+    public CodeTab(TabPane pane, File initialFile) {
         area = new FeaturedCodeArea("mcfunction");
         file = initialFile;
+        fileName = file.getName();
+        tabPane = pane;
 
         setContent(area);
 
-        // initialFile ist null, wenn ein leerer Tab erstellt werden soll.
-        if(initialFile == null) {
-            setText("New file");
-        } else {
+        // Datei in die FeaturedCodeArea laden.
+        if(initialFile.isFile()) {
+            setText(initialFile.getName());
 
-            // Datei in die FeaturedCodeArea laden.
-            if(initialFile.isFile()) {
-                setText(initialFile.getName());
-
-                try {
-                    String content = "";
-                    for(String a : Files.readAllLines(initialFile.toPath())) {
-                        content += a + System.lineSeparator();
-                    }
-                    area.appendText(content);
-                } catch (IOException exception) {
-                    exception.printStackTrace();
+            try {
+                String content = "";
+                for(String a : Files.readAllLines(initialFile.toPath())) {
+                    content += a + System.lineSeparator();
                 }
+                area.appendText(content);
+            } catch (IOException exception) {
+                exception.printStackTrace();
             }
+
         }
 
         // Wenn der Text verändert wird, soll die Datei als nicht gespeichert markiert werden.
@@ -63,41 +65,42 @@ public class CodeTab extends Tab {
             }
 
         });
+
+        setOnClosed((event -> {
+            tabPane.getTabs().remove(this);
+        }));
     }
 
     /**
      * Datei wird als nicht gespeichert markiert.
      */
     private void unsave() {
-        saved = false;
-        setText("*" + getText());
+        if(saved) {
+            saved = false;
+            setText("*" + fileName);
+        }
     }
 
     private void save() {
 
         // Wenn die Datei bereits gespeichert ist, muss sie nicht erneut beschrieben werden.
-        if(saved) return;
+        if(!saved) {
 
-        try {
-            FileWriter writer = new FileWriter(file) ;
-            writer.write(area.getText());
-            writer.close();
+            try {
+                FileWriter writer = new FileWriter(file);
+                writer.write(area.getText());
+                writer.close();
 
-            setText(file.getName());
+                setText(fileName);
 
-            System.out.println("Saved file " + file.toString());
-            saved = true;
-        } catch (IOException exception) {
-            exception.printStackTrace();
+                System.out.println("Saved file " + file.toString());
+                saved = true;
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+
         }
 
-    }
-
-    /**
-     * Dieser Konstruktor erstellt einen neuen leeren Tab ohne Datei.
-     */
-    public CodeTab() {
-        this(null);
     }
 
     public File getFile() {

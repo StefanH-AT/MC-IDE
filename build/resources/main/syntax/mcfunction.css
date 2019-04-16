@@ -4,6 +4,10 @@
 	-fx-text-fill: #D9D9D9;
 }
 
+.styled-text-area .caret {
+    -fx-stroke: #D9D9D9;
+}
+
 .lineno {
 	-fx-fill: #D9D9D9;
 	-fx-background-color: #2E2E2E;
@@ -13,6 +17,6 @@
     -fx-fill: #666666;
 }
 
-.styled-text-area .caret {
-    -fx-stroke: #D9D9D9;
+.styled-text-area .namespace {
+    -fx-fill: #FF9B35;
 }

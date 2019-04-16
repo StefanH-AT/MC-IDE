@@ -3,8 +3,13 @@
 
 
     {
-      "pattern": "^#[^\\n]*",
+      "pattern": "^#[^\\n]+",
       "name": "comment"
+    },
+
+    {
+      "pattern": "[\\w_]+:[\\w_]+",
+      "name": "namespace"
     }
 
 
