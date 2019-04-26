@@ -155,54 +155,6 @@ public class CompletionPane extends VBox {
             }
         }
 
-        // Das Argument, das gerade analysiert wird
-        /*CommandNode currentArg = Commands.getCommands().get(cmdName);
-        for(int i = 0; i < lineArgs.length; i++) {
-            String arg = lineArgs[i];
-            CommandNode[] currentArgChildren = currentArg.getChildren();
-
-            CommandNode argAsNode = Commands.determineArgType(arg);
-            System.out.println("Current arg: " + arg + " (" + currentArg.getClass().getSimpleName() + ")");
-
-            // Linked list durchsuchen
-            for(CommandNode child : currentArgChildren) {
-
-                // Wenn die linked list ein child mit gleichem command Attribut typ hat
-                if(argAsNode.getClass() == child.getClass()) {
-
-                    if(child instanceof Command) {
-                        String childName = ((Command) child).getName();
-                        System.out.println(childName);
-                        if(!childName.equals(arg)) continue;
-                    }
-
-                    // Wenn es das letzte Attribut ist, completion zur Liste hinzufügen
-                    // Ansonsten Atribut setzen
-                    if(i == lineArgs.length - 1) {
-
-                        // Command
-                        if(child instanceof Command) {
-                            completions.add(((Command) child).getName());
-                        }
-
-                        if(child instanceof SelectorNode) {
-                            for(SelectorNode.SelectorType val : SelectorNode.SelectorType.values()) {
-                                completions.add("@" + val.name());
-                            }
-                        }
-
-                    } else {
-                        currentArg = child;
-                        continue;
-                    }
-
-                }
-            }
-        }
-
-        */
-
-
     }
 
     private boolean isArgumentOfSameType(String argument, CommandNode expected) {

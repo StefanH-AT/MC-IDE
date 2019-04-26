@@ -78,7 +78,7 @@ public class Commands {
             break;
 
             case "content":
-                toReturn = new ContentNode(null);
+                toReturn = new ContentNode(defNode.getValue());
             break;
 
             case "number":
