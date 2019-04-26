@@ -8,8 +8,22 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class ControllerRecipes extends ControllerBrowserNoDirectories {
+
+    ControllerRecipes() {
+        super("recipes", ControllerBrowserNoDirectories.DATAPACK);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
+    }
 
     @FXML
     private TextField itemSearch;
@@ -45,4 +59,8 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
     }
 
+    @Override
+    protected void openFile(File file) throws IOException {
+
+    }
 }
