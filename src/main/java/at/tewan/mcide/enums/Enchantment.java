@@ -43,7 +43,7 @@ public enum Enchantment {
     }
 
     private Enchantment(int version, boolean curse) {
-
+        this.version = version;
     }
 
     public int getVersion() {

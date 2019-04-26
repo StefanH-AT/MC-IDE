@@ -13,10 +13,16 @@
 	-fx-background-color: #2E2E2E;
 }
 
+/* Syntax */
+
 .styled-text-area .comment {
     -fx-fill: #666666;
 }
 
 .styled-text-area .namespace {
     -fx-fill: #FF9B35;
+}
+
+.styled-text-area .selectortype {
+    -fx-fill: #D31D84;
 }

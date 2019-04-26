@@ -10,8 +10,11 @@
     {
       "pattern": "[\\w_]+:[\\w_]+",
       "name": "namespace"
+    },
+
+    {
+      "pattern":  "@[prsea]",
+      "name": "selectortype"
     }
-
-
   ]
 }

@@ -109,5 +109,8 @@
 .tree-view .tree-cell {
     -fx-background-color: #1C1C1C;
     -fx-border-color: #1E1E1E;
+}
 
+#completion-pane {
+    -fx-background-color: #2E2E2E;
 }

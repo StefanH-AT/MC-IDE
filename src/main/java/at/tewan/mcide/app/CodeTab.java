@@ -1,15 +1,23 @@
 package at.tewan.mcide.app;
 
 import at.tewan.mcide.app.controllers.ControllerFunctions;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import org.fxmisc.richtext.CaretNode;
 import org.fxmisc.richtext.CodeArea;
 
+import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Optional;
 
 /**
  * Ein Tab für TabPane mit integrierter FeaturedCodeArea und Datei lade / speichersystem
@@ -26,13 +34,18 @@ public class CodeTab extends Tab {
 
     private String fileName;
 
+    private StackPane container;
+
     public CodeTab(TabPane pane, File initialFile) {
         area = new FeaturedCodeArea("mcfunction");
         file = initialFile;
         fileName = file.getName();
         tabPane = pane;
 
-        setContent(area);
+        container = new StackPane();
+        container.setAlignment(Pos.TOP_LEFT);
+        container.getChildren().add(area);
+        setContent(container);
 
         // Datei in die FeaturedCodeArea laden.
         if(initialFile.isFile()) {
@@ -66,9 +79,17 @@ public class CodeTab extends Tab {
 
         });
 
+        // Tab aus der TabPane löschen wenn geschlossen wird
         setOnClosed((event -> {
             tabPane.getTabs().remove(this);
         }));
+
+        // Code completions
+        CompletionPane completionPane = new CompletionPane(area);
+
+
+
+        container.getChildren().add(completionPane);
     }
 
     /**

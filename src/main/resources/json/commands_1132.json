@@ -1,0 +1,74 @@
+{
+  "version": 1132,
+  "commands": [
+    {
+      "type": "command",
+      "value": "execute",
+      "children": [
+        {
+          "type": "subcommand",
+          "value": "as",
+          "children": [
+            {
+              "type": "selector",
+              "children": [
+                {
+                  "type": "reference",
+                  "value": "execute *"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "subcommand",
+          "value": "at",
+          "children": [
+            {
+              "type": "selector",
+              "children": [
+                {
+                  "type": "reference",
+                  "value": "execute.*"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "subcommand",
+          "value": "run",
+          "children": [
+            {
+              "type": "reference",
+              "value": "*"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "command",
+      "value": "give",
+      "children": [
+        {
+          "type": "selector",
+          "children": [
+            {
+              "type": "content",
+              "children": [
+                {
+                  "type": "number",
+                  "value": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
