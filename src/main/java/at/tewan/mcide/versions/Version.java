@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class Version {
 
-    private static int[] supportedVersions = {1132, 1140};
+    private static int[] supportedVersions = {13, 14};
 
     public static int[] getSupportedVersions() {
         return supportedVersions;
@@ -16,11 +16,11 @@ public class Version {
     }
 
     public static String getVersionAsName(int version) {
-        return version / 1000 + "." + version % 1000 / 10 + "." + version % 10;
+        return 1 + "." + version;
     }
 
     public static int getVersionAsId(String version) {
-        return version.charAt(0) * 1000 + version.charAt(2) * 100 + version.charAt(3) * 10 + version.charAt(5);
+        return Integer.parseInt(version.substring(2));
     }
 
     public static String[] getSupportedVersionsAsString(boolean sortAsc) {

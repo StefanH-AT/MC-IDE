@@ -20,7 +20,7 @@ public class Commands {
     public static void init() {
         Gson gson = new Gson();
 
-        CommandDefinitions definitions = gson.fromJson(new InputStreamReader(Resources.getLocalResource("json/commands_1132.json")), CommandDefinitions.class);
+        CommandDefinitions definitions = gson.fromJson(new InputStreamReader(Resources.getLocalResource("definitions/commands_1132.json")), CommandDefinitions.class);
 
         // Root Command Objekt erstellen
         for(CommandDefinitionNode node : definitions.getCommands()) {
@@ -69,7 +69,7 @@ public class Commands {
                 toReturn = new SelectorNode(null);
             break;
 
-            case "json":
+            case "definitions":
                 toReturn = new JsonNode(null);
             break;
 

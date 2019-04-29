@@ -10,6 +10,6 @@ public class JsonNode extends CommandNode {
 
     @Override
     public String getCompletion() {
-        return "{json}";
+        return "{definitions}";
     }
 }

@@ -45,11 +45,14 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
             rootDir = Project.getResourceDir();
         }
 
+        browser.getPanes().clear();
+
         for(String namespace : Project.getNamespaces()) {
             TitledPane pane = new TitledPane();
             ListView list = new ListView();
 
-            File dir = new File(rootDir + "/" + rootName);
+            File dir = new File(rootDir + "/" + namespace + "/" + rootName);
+            System.out.println(dir.toString());
             for(File f : dir.listFiles()) {
                 list.getItems().add(f.getName());
             }

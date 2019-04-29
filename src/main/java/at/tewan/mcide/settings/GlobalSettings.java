@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class GlobalSettings {
 
-    private static String settingsFileName = "settings.json";
+    private static String settingsFileName = "settings.definitions";
     private static File settingsFile = new File(settingsFileName);
     private static Settings settings;
 
@@ -42,7 +42,7 @@ public class GlobalSettings {
     public static void saveConfig() {
         try {
 
-            System.out.println("Generating default settings.json in " + settingsFile.toString());
+            System.out.println("Generating default settings.definitions in " + settingsFile.toString());
 
             FileWriter writer = new FileWriter(settingsFile);
             writer.write(gson.toJson(settings));
