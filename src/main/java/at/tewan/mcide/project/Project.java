@@ -120,7 +120,7 @@ public class Project {
     }
 
     public static String getProjectConfig() {
-        return getProjectDir() + "project.definitions";
+        return getProjectDir() + "project.mcide";
     }
 
     public static String getProjectDir() {

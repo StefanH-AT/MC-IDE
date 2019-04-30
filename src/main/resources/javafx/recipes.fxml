@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+<?import at.tewan.mcide.app.factories.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -62,7 +62,7 @@
                         </GridPane>
                         <VBox fx:id="ingredientList" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0">
                            <children>
-                              <ListView fx:id="ingredientListView" prefHeight="200.0" prefWidth="200.0" />
+                              <ListViewDragDrop fx:id="ingredientListView" prefHeight="300.0" prefWidth="200.0" VBox.vgrow="SOMETIMES" />
                            </children>
                         </VBox>
                      </children>
@@ -70,33 +70,72 @@
                   <VBox maxHeight="-Infinity" maxWidth="80.0" GridPane.columnIndex="2">
                      <children>
                         <Pane fx:id="result" prefHeight="80.0" prefWidth="80.0" styleClass="drop" />
-                        <TextField fx:id="resultCount" maxWidth="1.7976931348623157E308" promptText="Count" />
+                        <TextField fx:id="resultCount" maxWidth="1.7976931348623157E308" promptText="Count">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></TextField>
                      </children>
                   </VBox>
                </children>
             </GridPane>
             <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="SOMETIMES">
                <children>
-                  <ListView fx:id="itemList" prefHeight="500.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <GridPane hgap="10.0" VBox.vgrow="ALWAYS">
+                  <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                         <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="300.0" />
                         <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0" />
+                        <ColumnConstraints />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints minHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="30.0" vgrow="NEVER" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="itemSearch" onAction="#updateitemlist" promptText="Search">
+                        <TextField fx:id="itemSearch" onAction="#updateitemlist" promptText="Search" GridPane.rowIndex="1">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <ChoiceBox fx:id="namespaceFilter" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" />
-                        <ToggleButton fx:id="regex" mnemonicParsing="false" text="Regex" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" onAction="#updateitemlist" text="Search" GridPane.columnIndex="3" />
+                        <ChoiceBox fx:id="namespaceFilter" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="regex" mnemonicParsing="false" text="Regex" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#updateitemlist" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <ListView fx:id="itemList" prefHeight="500.0" prefWidth="200.0" GridPane.columnSpan="2" />
+                        <VBox fx:id="dropDelete" alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.columnSpan="3">
+                           <children>
+                              <BorderPane VBox.vgrow="ALWAYS">
+                                 <center>
+                                    <ImageView fitHeight="150.0" fitWidth="423.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../img/trash.png" />
+                                       </image>
+                                    </ImageView>
+                                 </center>
+                              </BorderPane>
+                              <Label text="Rename Recipe" />
+                              <HBox>
+                                 <children>
+                                    <TextField fx:id="renameInput" promptText="New name" HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" onAction="#rename" text="Rename">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label text="Recipe Group">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox>
+                                 <children>
+                                    <TextField fx:id="groupInput" onAction="#setgroup" promptText="Recipe Group (Leave empty if no group)" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />

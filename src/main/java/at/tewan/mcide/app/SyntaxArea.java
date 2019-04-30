@@ -25,7 +25,7 @@ public class SyntaxArea extends CodeArea {
 
         String syntaxDir = "syntax/";
 
-        syntax = json.fromJson(new InputStreamReader(Resources.getLocalResource(syntaxDir + syntaxName + ".definitions")), Syntax.class);
+        syntax = json.fromJson(new InputStreamReader(Resources.getLocalResource(syntaxDir + syntaxName + ".json")), Syntax.class);
         getStylesheets().add(syntaxDir + syntaxName + ".css");
 
         String regex = "";

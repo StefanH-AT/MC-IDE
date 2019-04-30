@@ -1,15 +1,12 @@
 package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.app.NewRecipeDialog;
+import at.tewan.mcide.app.factories.ListCellDragable;
 import at.tewan.mcide.item.Items;
 import at.tewan.mcide.recipes.json.Recipe;
-import com.sun.org.apache.bcel.internal.generic.DREM;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
@@ -17,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import javax.security.auth.callback.Callback;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -28,8 +26,6 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     private Recipe currentRecipe;
 
     private String[] filters = {"All Namespaces", "Only minecraft:", "Not minecraft:"};
-
-    private final ObjectProperty<ListCell<String>> dragSource = new SimpleObjectProperty<>();
 
     public ControllerRecipes() {
         super("recipes", ControllerBrowserNoDirectories.DATAPACK);
@@ -44,46 +40,75 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
         updateitemlist();
 
+        // TODO: Refactoren!!
+
         // Item List Dragging
-        itemList.setCellFactory(lv -> {
+        itemList.setCellFactory(view -> new ListCellDragable(false));
+
+        ingredientListView.setCellFactory(lv -> {
             ListCell<String> cell = new ListCell<String>() {
                 @Override
                 protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
-                    setText(item);
+
+                    if(empty)
+                        setText("");
+                    else
+                        setText(getIndex() + " " + item);
                 }
             };
 
             cell.setOnDragDetected(event -> {
-                Dragboard dragboard = cell.startDragAndDrop(TransferMode.COPY);
+                Dragboard dragboard = cell.startDragAndDrop(TransferMode.MOVE);
                 ClipboardContent content = new ClipboardContent();
 
-                content.putString(cell.getItem());
+                content.putString(cell.getText());
                 dragboard.setContent(content);
-                dragSource.set(cell);
+
+                event.consume();
             });
 
             return cell;
         });
 
-        ingredientListView.setOnDragOver(event -> {
-            Dragboard dragboard = event.getDragboard();
-            if(dragboard.hasString()) {
-                event.acceptTransferModes(TransferMode.MOVE);
-            }
-        });
+
 
         // Shapeless List Dropping
         ingredientListView.setOnDragDropped(event -> {
             Dragboard dragboard = event.getDragboard();
-            String text = (String) dragboard.getContent(DataFormat.PLAIN_TEXT);
-            ingredientListView.getItems().add(text);
-            ingredientListView.getItems().add(dragSource.get());
+
+            if(dragboard.hasString() && event.getGestureSource() != ingredientListView) {
+
+                String text = dragboard.getString();
+
+                if(ingredientListView.getItems().size() <= 9) {
+                    ingredientListView.getItems().add(text);
+                    ingredientListView.getItems().sort(String::compareTo);
+
+                    event.setDropCompleted(true);
+                }
+
+                event.consume();
+            }
+
         });
+
+
+
+        dropDelete.setOnDragOver(event ->
+            event.acceptTransferModes(TransferMode.ANY)
+        );
+
+        dropDelete.setOnDragDropped(event ->
+            ingredientListView.getItems().remove(event.getDragboard().getString())
+        );
     }
 
     @FXML
-    private TextField itemSearch;
+    private Pane dropDelete;
+
+    @FXML
+    private TextField itemSearch, resultCount, renameInput, groupInput;
 
     @FXML
     private ToggleButton regex;
@@ -98,13 +123,10 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     private VBox ingredientList;
 
     @FXML
-    private ListView ingredientListView;
+    private ListView<String> ingredientListView;
 
     @FXML
     private Pane result;
-
-    @FXML
-    private TextField resultCount;
 
     @FXML
     private StackPane stackPane;
@@ -157,6 +179,16 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
 
         }
+
+    }
+
+    @FXML
+    private void setgroup() {
+
+    }
+
+    @FXML
+    private void rename() {
 
     }
 }

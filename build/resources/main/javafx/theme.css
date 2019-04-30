@@ -143,3 +143,16 @@
 .drop {
     -fx-background-color: #2E2E2E;
 }
+
+.drag-over {
+    -fx-border-color: #4070A8;
+}
+
+.scroll-bar .track, .scroll-bar {
+	-fx-background-color: #121212;
+}
+
+.scroll-bar .thumb {
+	-fx-background-color: #2E2E2E;
+	-fx-background-radius: 0;
+}

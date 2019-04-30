@@ -4,7 +4,7 @@ import at.tewan.mcide.Resources;
 import at.tewan.mcide.app.NewProjectDialog;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.settings.GlobalSettings;
-import at.tewan.mcide.util.ExtensionFilters;
+import at.tewan.mcide.filters.ExtensionFilters;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;

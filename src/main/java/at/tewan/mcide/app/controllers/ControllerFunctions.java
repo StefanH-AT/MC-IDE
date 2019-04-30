@@ -2,7 +2,7 @@ package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.app.CodeTab;
 import at.tewan.mcide.project.Project;
-import at.tewan.mcide.util.ExtensionFilters;
+import at.tewan.mcide.filters.ExtensionFilters;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
