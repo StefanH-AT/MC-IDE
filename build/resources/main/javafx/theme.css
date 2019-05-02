@@ -22,11 +22,11 @@
     -fx-background-color: #2E2E2E;
 }
 
-.toggle-button {
+.toggle-button:selected {
     -fx-background-color: #232323;
 }
 
-.toggle-button:selected {
+.toggle-button {
     -fx-background-color: #2E2E2E;
 }
 
@@ -146,6 +146,10 @@
 
 .drag-over {
     -fx-border-color: #4070A8;
+}
+
+.list-view {
+    -fx-border-width: 1px;
 }
 
 .scroll-bar .track, .scroll-bar {

@@ -1,20 +1,17 @@
 package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.app.NewRecipeDialog;
-import at.tewan.mcide.app.factories.ListCellDragable;
+import at.tewan.mcide.app.factories.ListViewDragDrop;
 import at.tewan.mcide.item.Items;
 import at.tewan.mcide.recipes.json.Recipe;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-import javax.security.auth.callback.Callback;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -40,60 +37,9 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
         updateitemlist();
 
-        // TODO: Refactoren!!
+        itemList.setDrop(false);
 
-        // Item List Dragging
-        itemList.setCellFactory(view -> new ListCellDragable(false));
-
-        ingredientListView.setCellFactory(lv -> {
-            ListCell<String> cell = new ListCell<String>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    if(empty)
-                        setText("");
-                    else
-                        setText(getIndex() + " " + item);
-                }
-            };
-
-            cell.setOnDragDetected(event -> {
-                Dragboard dragboard = cell.startDragAndDrop(TransferMode.MOVE);
-                ClipboardContent content = new ClipboardContent();
-
-                content.putString(cell.getText());
-                dragboard.setContent(content);
-
-                event.consume();
-            });
-
-            return cell;
-        });
-
-
-
-        // Shapeless List Dropping
-        ingredientListView.setOnDragDropped(event -> {
-            Dragboard dragboard = event.getDragboard();
-
-            if(dragboard.hasString() && event.getGestureSource() != ingredientListView) {
-
-                String text = dragboard.getString();
-
-                if(ingredientListView.getItems().size() <= 9) {
-                    ingredientListView.getItems().add(text);
-                    ingredientListView.getItems().sort(String::compareTo);
-
-                    event.setDropCompleted(true);
-                }
-
-                event.consume();
-            }
-
-        });
-
-
+        ingredientListView.setItemLimit(9);
 
         dropDelete.setOnDragOver(event ->
             event.acceptTransferModes(TransferMode.ANY)
@@ -114,7 +60,7 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     private ToggleButton regex;
 
     @FXML
-    private ListView<String> itemList;
+    private ListViewDragDrop itemList;
 
     @FXML
     private GridPane craftingTable;
@@ -123,7 +69,7 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     private VBox ingredientList;
 
     @FXML
-    private ListView<String> ingredientListView;
+    private ListViewDragDrop ingredientListView;
 
     @FXML
     private Pane result;

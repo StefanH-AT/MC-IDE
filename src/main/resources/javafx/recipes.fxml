@@ -101,7 +101,7 @@
                         <ChoiceBox fx:id="namespaceFilter" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <ToggleButton fx:id="regex" mnemonicParsing="false" text="Regex" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Button mnemonicParsing="false" onAction="#updateitemlist" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <ListView fx:id="itemList" prefHeight="500.0" prefWidth="200.0" GridPane.columnSpan="2" />
+                        <ListViewDragDrop fx:id="itemList" prefHeight="500.0" prefWidth="200.0" GridPane.columnSpan="2" />
                         <VBox fx:id="dropDelete" alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.columnSpan="3">
                            <children>
                               <BorderPane VBox.vgrow="ALWAYS">

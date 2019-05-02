@@ -22,11 +22,11 @@
     -fx-background-color: #2E2E2E;
 }
 
-.toggle-button {
+.toggle-button:selected {
     -fx-background-color: #232323;
 }
 
-.toggle-button:selected {
+.toggle-button {
     -fx-background-color: #2E2E2E;
 }
 

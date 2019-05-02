@@ -5,7 +5,7 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 
-public class ListCellDragable extends ListCell<String> {
+public class ListCellDraggable extends ListCell<String> {
 
     @Override
     protected void updateItem(String item, boolean empty) {
@@ -13,7 +13,7 @@ public class ListCellDragable extends ListCell<String> {
         setText(item);
     }
 
-    public ListCellDragable(boolean removeOnDrag) {
+    public ListCellDraggable(boolean removeOnDrag) {
 
         setOnDragDetected(event -> {
 
