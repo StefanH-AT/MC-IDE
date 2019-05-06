@@ -40,14 +40,12 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
         itemList.setDrop(false);
 
         ingredientListView.setItemLimit(9);
+        ingredientListView.setRemoveOnDrag(true);
 
         dropDelete.setOnDragOver(event ->
             event.acceptTransferModes(TransferMode.ANY)
         );
 
-        dropDelete.setOnDragDropped(event ->
-            ingredientListView.getItems().remove(event.getDragboard().getString())
-        );
     }
 
     @FXML

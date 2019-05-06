@@ -13,21 +13,17 @@ public class ListCellDraggable extends ListCell<String> {
         setText(item);
     }
 
-    public ListCellDraggable(boolean removeOnDrag) {
+    ListCellDraggable(boolean removeOnDrag) {
 
         setOnDragDetected(event -> {
 
-            Dragboard dragboard = startDragAndDrop(TransferMode.ANY);
+            Dragboard dragboard = startDragAndDrop(TransferMode.MOVE);
             ClipboardContent content = new ClipboardContent();
 
             content.putString(getText());
             dragboard.setContent(content);
 
             event.consume();
-
-            if(removeOnDrag) {
-                getListView().getItems().remove(this);
-            }
 
         });
 

@@ -17,7 +17,6 @@ public class MainApplication extends Application {
 
         primaryStage.setMaximized(true);
         primaryStage.setTitle("MC-IDE");
-        primaryStage.initStyle(StageStyle.DECORATED);
 
         Parent root = Resources.getFXML("main");
         Scene mainScene = new Scene(root);

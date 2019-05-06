@@ -22,7 +22,7 @@ public final class ListViewDragDrop extends ListView<String> {
 
         // Blauer Rand aus
         setOnDragExited(event -> {
-            if(event.getDragboard().hasString() && isDrop())
+            if(acceptDrop(event))
                 getStyleClass().remove("drag-over");
         });
 
@@ -51,8 +51,8 @@ public final class ListViewDragDrop extends ListView<String> {
 
         });
 
-        // TODO: Remove On Drag hat keine Auswirkung weil es nicht im Konstruktor gesetzt werden kann
-        setCellFactory(view -> new ListCellDraggable(removeOnDrag));
+        // TODO: Remove On Drag funktioniert nicht
+        setRemoveOnDrag(isRemoveOnDrag());
     }
 
     private boolean acceptDrop(DragEvent event) {
@@ -89,6 +89,7 @@ public final class ListViewDragDrop extends ListView<String> {
 
     public void setRemoveOnDrag(boolean removeOnDrag) {
         this.removeOnDrag = removeOnDrag;
+        setCellFactory(view -> new ListCellDraggable(removeOnDrag));
     }
 
     public boolean isDrag() {
