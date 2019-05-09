@@ -1,4 +1,4 @@
-package at.tewan.mcide.recipes.json;
+package at.tewan.mcide.mcfiles.recipe;
 
 import java.util.ArrayList;
 

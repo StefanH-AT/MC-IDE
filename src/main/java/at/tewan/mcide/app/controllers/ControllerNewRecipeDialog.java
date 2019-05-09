@@ -1,6 +1,7 @@
 package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.app.NewRecipeDialog;
+import at.tewan.mcide.enums.RecipeType;
 import at.tewan.mcide.filters.Filters;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,16 +19,8 @@ public class ControllerNewRecipeDialog implements Initializable {
     @FXML
     private ChoiceBox<String> type;
 
-    private String[] availibleRecipeTypes = {
-            "Shaped Crafting",
-            "Shapeless Crafting",
-            "Stonecutting",
-            "Smelting",
-            "Smoking",
-            "Blasting",
-            "Campfire",
-            "Crafting Special"
-    };
+    private String[] availibleRecipeTypes = RecipeType.getAllLabels();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,6 +29,8 @@ public class ControllerNewRecipeDialog implements Initializable {
 
         name.setTextFormatter(Filters.getNamespaceFilter());
         group.setTextFormatter(Filters.getNamespaceFilter());
+
+
     }
 
     @FXML

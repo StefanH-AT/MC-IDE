@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
 <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerRecipes">
    <items>
       <VBox maxWidth="300.0" prefHeight="200.0" prefWidth="100.0">
@@ -69,7 +70,7 @@
                   </StackPane>
                   <VBox maxHeight="-Infinity" maxWidth="80.0" GridPane.columnIndex="2">
                      <children>
-                        <Pane fx:id="result" prefHeight="80.0" prefWidth="80.0" styleClass="drop" />
+                        <ItemSlotPane fx:id="result" prefHeight="80.0" prefWidth="80.0" styleClass="drop" />
                         <TextField fx:id="resultCount" maxWidth="1.7976931348623157E308" promptText="Count">
                            <VBox.margin>
                               <Insets top="5.0" />

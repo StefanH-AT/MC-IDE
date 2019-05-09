@@ -1,11 +1,10 @@
 package at.tewan.mcide.app.factories;
 
-import javafx.scene.control.Label;
+import at.tewan.mcide.item.Items;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
-
-import javax.swing.text.html.ImageView;
 
 public class ItemSlotPane extends Pane {
 
@@ -34,13 +33,28 @@ public class ItemSlotPane extends Pane {
 
         setOnDragDropped(event -> {
             if(acceptDrop(event)) {
-
+                img.setImage(Items.getThumbnail(event.getDragboard().getString()));
             }
         });
+
+        populate();
+    }
+
+    public void setImage(String itemName) {
+        img.setImage(Items.getThumbnail(itemName));
+    }
+
+    private void populate() {
+        img = new ImageView();
+
+        getChildren().add(img);
+        img.fitWidthProperty().bind(widthProperty());
+        img.fitHeightProperty().bind(heightProperty());
+        img.setSmooth(false);
     }
 
     private boolean acceptDrop(DragEvent event) {
-        return event.getDragboard().hasString();
+        return event.getDragboard().hasString() && Items.contains(event.getDragboard().getString());
     }
 
 }

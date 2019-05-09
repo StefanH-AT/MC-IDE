@@ -6,7 +6,6 @@ public class ProjectConfig {
 
     private String name;
     private String author;
-    private int version;
 
     public String getName() {
         return name;
@@ -22,14 +21,6 @@ public class ProjectConfig {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
     }
 
     public ArrayList<String> getNamespaces() {

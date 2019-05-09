@@ -42,6 +42,16 @@ public class Items {
         return items;
     }
 
+    public static boolean contains(String item) {
+        for(String i : items) {
+            if(i.equals(item)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // Es werden nicht alle Bilder im init in den Ram geladen, damit das Programm schneller startet und um
     // Arbeitsspeicher zu sparen. Die Bilder werden nach Bedarf erstellt und in das Array unter gleichem
     // Index des dazugehörigen Item Namens im Item array gespeichert. Wenn das Bild dann noch einmal geladen wird,

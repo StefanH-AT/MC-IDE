@@ -1,18 +1,23 @@
 package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.app.NewRecipeDialog;
+import at.tewan.mcide.app.factories.ItemSlotPane;
 import at.tewan.mcide.app.factories.ListViewDragDrop;
+import at.tewan.mcide.enums.RecipeType;
 import at.tewan.mcide.item.Items;
-import at.tewan.mcide.recipes.json.Recipe;
+import at.tewan.mcide.mcfiles.recipe.CraftingKey;
+import at.tewan.mcide.mcfiles.recipe.CraftingShapeless;
+import at.tewan.mcide.mcfiles.recipe.Recipe;
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,7 +54,7 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     }
 
     @FXML
-    private Pane dropDelete;
+    private VBox dropDelete;
 
     @FXML
     private TextField itemSearch, resultCount, renameInput, groupInput;
@@ -70,7 +75,7 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     private ListViewDragDrop ingredientListView;
 
     @FXML
-    private Pane result;
+    private ItemSlotPane result;
 
     @FXML
     private StackPane stackPane;
@@ -91,7 +96,22 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
     @Override
     protected void openFile(File file) throws IOException {
+        Gson gson = new Gson();
 
+        currentRecipe = gson.fromJson(new FileReader(file), Recipe.class);
+
+        System.out.println(currentRecipe.getType());
+
+        // Daten von Json in GUI laden.
+        if(currentRecipe.getType().equals(RecipeType.CRAFTING_SHAPELESS.getName())) {
+            CraftingShapeless shapeless = (CraftingShapeless) currentRecipe;
+            ingredientListView.getItems().clear();
+
+            for(CraftingKey key : shapeless.getIngredients()) {
+                if(key.getItem() != null) ingredientListView.getItems().add(key.getItem());
+                if(key.getTag() != null) ingredientListView.getItems().add(key.getTag());
+            }
+        }
     }
 
     @FXML
@@ -128,7 +148,8 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
     @FXML
     private void setgroup() {
-
+        currentRecipe.setGroup(groupInput.getText());
+        groupInput.clear();
     }
 
     @FXML

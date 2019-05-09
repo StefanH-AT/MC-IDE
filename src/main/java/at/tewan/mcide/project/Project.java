@@ -3,7 +3,6 @@ package at.tewan.mcide.project;
 import at.tewan.mcide.Resources;
 import at.tewan.mcide.mcfiles.PackDefinition;
 import at.tewan.mcide.project.json.ProjectConfig;
-import at.tewan.mcide.versions.Version;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -20,16 +19,19 @@ public class Project {
 
     private static PackDefinition resourceDefinition, dataDefinition;
 
-    public static void newProject(String name, String author, int version, String... namespaces) {
+    // Die Versionnummern die in die
+    private static final int DATAPACK_VERSION = 1;
+    private static final int RESOURCEPACK_VERSION = 4;
+
+    public static void newProject(String name, String author, String... namespaces) {
         currentProject = new ProjectConfig();
         currentProject.setName(name);
         currentProject.setAuthor(author);
-        currentProject.setVersion(version);
         currentProject.setNamespaces(new ArrayList<>(Arrays.asList(namespaces)));
 
         String label = "Project: " + name + " By: " + author + " \nMade with MC-IDE";
-        resourceDefinition = new PackDefinition(label, Version.getResourcePackFormat(version));
-        dataDefinition = new PackDefinition(label, Version.getDataPackFormat(version));
+        resourceDefinition = new PackDefinition(name, RESOURCEPACK_VERSION);
+        dataDefinition = new PackDefinition(name, DATAPACK_VERSION);
 
         save();
     }
