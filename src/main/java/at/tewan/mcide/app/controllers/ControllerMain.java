@@ -95,17 +95,17 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private void build() {
-
+        Project.build(true, true);
     }
 
     @FXML
     private void buildresources() {
-
+        Project.build(false, true);
     }
 
     @FXML
     private void builddata() {
-
+        Project.build(true, false);
     }
 
     @FXML

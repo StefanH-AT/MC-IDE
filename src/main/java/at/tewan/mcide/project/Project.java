@@ -3,12 +3,14 @@ package at.tewan.mcide.project;
 import at.tewan.mcide.Resources;
 import at.tewan.mcide.mcfiles.PackDefinition;
 import at.tewan.mcide.project.json.ProjectConfig;
+import at.tewan.mcide.settings.GlobalSettings;
 import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,9 +20,13 @@ public class Project {
 
     private static PackDefinition resourceDefinition, dataDefinition;
 
+
     // Die Versionnummern die in die
     private static final int DATAPACK_VERSION = 1;
     private static final int RESOURCEPACK_VERSION = 4;
+
+    // Die Welt zu der die Packs beim builden kopiert werden soll
+    private static String projectWorld = "test";
 
     public static void newProject(String name, String author, String... namespaces) {
         currentProject = new ProjectConfig();
@@ -73,7 +79,7 @@ public class Project {
 
         // ================= PROJECT SETTING DATEI ======================
 
-        FileWriter projectConfigWriter = new FileWriter(getProjectConfig());
+        FileWriter projectConfigWriter = new FileWriter(getProjectConfigFile());
         projectConfigWriter.write(gson.toJson(currentProject));
         projectConfigWriter.close();
 
@@ -96,8 +102,20 @@ public class Project {
 
     }
 
-    public static void build() {
-
+    /**
+     *
+     * @param data Ob das Datapack kopiert werden soll
+     * @param resource Ob das Resourcepack kopiert werden soll
+     */
+    public static void build(boolean data, boolean resource) {
+        if(data) {
+            try {
+                Files.copy(new File(getProjectDir()).toPath(), new File(getDataDestDir()).toPath());
+            } catch(IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        //if(resource)
     }
 
     public static void load(String configFile) {
@@ -124,7 +142,7 @@ public class Project {
         }
     }
 
-    public static String getProjectConfig() {
+    public static String getProjectConfigFile() {
         return getProjectDir() + "project.mcide";
     }
 
@@ -139,6 +157,18 @@ public class Project {
 
     public static String getDataDir() {
         return getProjectDir() + "data/";
+    }
+
+    public static String getResourceDestDir() {
+        return getDestDir() + "resource.zip";
+    }
+
+    public static String getDataDestDir() {
+        return getDestDir() + "datapacks/" + currentProject.getName();
+    }
+
+    public static String getDestDir() {
+        return GlobalSettings.getSettings().getMcDir() + "/saves/" + projectWorld + "/";
     }
 
     public static String getNamespaceResource(String namespace) {
