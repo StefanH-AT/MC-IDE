@@ -2,54 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ae7db90-2c1c-4d92-bf07-8ae12940b7f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/dialogs/BuildConfigDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx/buildconfig.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/CodeTab.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/CompletionPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/NewRecipeDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerFunctions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerLootTables.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerLootTables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerNewRecipeDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerNewRecipeDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerRecipes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerRecipes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/factories/ListCellDraggable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/factories/ListCellDraggable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/factories/ListViewDragDrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/factories/ListViewDragDrop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfiles/PackDefinition$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfiles/PackDefinition$Pack.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfiles/PackDefinition$Pack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfiles/PackDefinition.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfiles/PackDefinition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/project/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/project/Project.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/javafx/loottables.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/javafx/loottables.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/javafx/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/javafx/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/javafx/newproject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/javafx/newproject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/javafx/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/javafx/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/CodeTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/CodeTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/CompletionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/CompletionPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/dialogs/Dialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/FeaturedCodeArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/FeaturedCodeArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/NewProjectDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/dialogs/NewProjectDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/NewRecipeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/dialogs/NewRecipeDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/SyntaxArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/SyntaxArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerLootTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerLootTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerNewProjectDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerNewProjectDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerNewRecipeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerNewRecipeDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/factories/ListCellDraggable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/factories/ListCellDraggable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/factories/ListViewDragDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/factories/ListViewDragDrop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfiles/PackDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfiles/PackDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/loottables.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/loottables.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/theme.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -75,7 +29,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="388">
@@ -96,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/theme.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-641">
@@ -142,6 +96,7 @@
       <find>check</find>
       <find>setCell</find>
       <find>#232323</find>
+      <find>#1E1E1E</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -957,16 +912,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerAssets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -978,6 +923,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-641">
           <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
