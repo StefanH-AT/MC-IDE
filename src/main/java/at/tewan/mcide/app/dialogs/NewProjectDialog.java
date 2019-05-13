@@ -1,4 +1,4 @@
-package at.tewan.mcide.app;
+package at.tewan.mcide.app.dialogs;
 
 public class NewProjectDialog extends Dialog {
 

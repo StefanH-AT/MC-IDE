@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class ControllerNewProjectDialog implements Initializable {
 
     @FXML
-    private TextField projectName, authorName;
+    private TextField projectName, authorName, namespaceInput;
 
     @FXML
     private ListView<String> namespaceList;
@@ -26,6 +26,7 @@ public class ControllerNewProjectDialog implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         projectName.setTextFormatter(Filters.getNamespaceFilter());
+        namespaceInput.setTextFormatter(Filters.getNamespaceFilter());
 
         namespaceList.getItems().addListener((ListChangeListener<String>) event -> {
             createProjectButton.setDisable(namespaceList.getItems().size() <= 0);
@@ -36,7 +37,7 @@ public class ControllerNewProjectDialog implements Initializable {
     private void addnamespace() {
         ObservableList<String> list = namespaceList.getItems();
 
-        list.add("new_namespace");
+        list.add(namespaceInput.getText());
     }
 
     @FXML

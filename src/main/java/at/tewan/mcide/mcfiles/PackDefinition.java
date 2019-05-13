@@ -16,10 +16,10 @@ public class PackDefinition {
         pack = new Pack();
 
         pack.setDescription(description);
-        pack.setPack_format(format);
+        pack.setPackFormat(format);
     }
 
-    private class Pack {
+    public class Pack {
         private int pack_format;
         private String description;
 
@@ -27,8 +27,8 @@ public class PackDefinition {
             return pack_format;
         }
 
-        public void setPack_format(int pack_format) {
-            this.pack_format = pack_format;
+        public void setPackFormat(int packFormat) {
+            this.pack_format = packFormat;
         }
 
         public String getDescription() {

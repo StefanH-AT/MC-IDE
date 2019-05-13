@@ -90,6 +90,8 @@ public final class ListViewDragDrop extends ListView<String> {
     public void setRemoveOnDrag(boolean removeOnDrag) {
         this.removeOnDrag = removeOnDrag;
         setCellFactory(view -> new ListCellDraggable(removeOnDrag));
+
+
     }
 
     public boolean isDrag() {

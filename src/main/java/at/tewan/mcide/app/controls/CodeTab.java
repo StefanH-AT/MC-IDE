@@ -1,23 +1,15 @@
-package at.tewan.mcide.app;
+package at.tewan.mcide.app.controls;
 
-import at.tewan.mcide.app.controllers.ControllerFunctions;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import org.fxmisc.richtext.CaretNode;
-import org.fxmisc.richtext.CodeArea;
 
-import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
-import java.util.Optional;
 
 /**
  * Ein Tab für TabPane mit integrierter FeaturedCodeArea und Datei lade / speichersystem

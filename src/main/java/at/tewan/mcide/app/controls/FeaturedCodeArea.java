@@ -1,4 +1,4 @@
-package at.tewan.mcide.app;
+package at.tewan.mcide.app.controls;
 
 import javafx.scene.input.ScrollEvent;
 import org.fxmisc.richtext.LineNumberFactory;

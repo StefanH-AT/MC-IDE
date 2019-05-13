@@ -1,4 +1,4 @@
-package at.tewan.mcide.app;
+package at.tewan.mcide.app.controls;
 
 import at.tewan.mcide.Resources;
 import at.tewan.mcide.mcfunction.Syntax;

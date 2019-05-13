@@ -1,6 +1,6 @@
 package at.tewan.mcide.app.controllers;
 
-import at.tewan.mcide.app.NewRecipeDialog;
+import at.tewan.mcide.app.dialogs.NewRecipeDialog;
 import at.tewan.mcide.app.factories.ItemSlotPane;
 import at.tewan.mcide.app.factories.ListViewDragDrop;
 import at.tewan.mcide.enums.RecipeType;
@@ -53,6 +53,10 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
     }
 
+// =================================================================
+//                       FXML FIELDS GENERAL
+// =================================================================
+
     @FXML
     private VBox dropDelete;
 
@@ -65,11 +69,13 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     @FXML
     private ListViewDragDrop itemList;
 
-    @FXML
-    private GridPane craftingTable;
+
 
     @FXML
     private VBox ingredientList;
+
+    @FXML
+    private GridPane craftingTable;
 
     @FXML
     private ListViewDragDrop ingredientListView;
@@ -102,7 +108,8 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
         System.out.println(currentRecipe.getType());
 
-        // Daten von Json in GUI laden.
+        // Daten
+        // von Json in GUI laden.
         if(currentRecipe.getType().equals(RecipeType.CRAFTING_SHAPELESS.getName())) {
             CraftingShapeless shapeless = (CraftingShapeless) currentRecipe;
             ingredientListView.getItems().clear();

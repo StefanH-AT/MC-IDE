@@ -1,5 +1,6 @@
-package at.tewan.mcide.app;
+package at.tewan.mcide.app.controls;
 
+import at.tewan.mcide.app.controls.FeaturedCodeArea;
 import at.tewan.mcide.mcfunction.command.Command;
 import at.tewan.mcide.mcfunction.command.CommandNode;
 import at.tewan.mcide.mcfunction.command.Commands;

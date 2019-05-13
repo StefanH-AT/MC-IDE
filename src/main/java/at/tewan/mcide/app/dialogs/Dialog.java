@@ -1,8 +1,9 @@
-package at.tewan.mcide.app;
+package at.tewan.mcide.app.dialogs;
 
 import at.tewan.mcide.Resources;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -11,9 +12,10 @@ public abstract class Dialog {
     private Stage stage;
     private Scene scene;
 
-    protected Dialog(String title, String fxmlName) {
+    Dialog(String title, String fxmlName) {
         stage = new Stage();
         stage.setTitle(title);
+        stage.initStyle(StageStyle.UTILITY);
 
         try {
             scene = new Scene(Resources.getFXML(fxmlName));

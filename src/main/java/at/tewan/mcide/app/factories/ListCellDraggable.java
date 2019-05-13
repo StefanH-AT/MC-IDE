@@ -4,6 +4,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.GridPane;
 
 public class ListCellDraggable extends ListCell<String> {
 

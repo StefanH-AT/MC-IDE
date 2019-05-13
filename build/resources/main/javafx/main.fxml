@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane stylesheets="@theme.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerMain">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerMain">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -42,15 +42,16 @@
                   <MenuItem mnemonicParsing="false" text="Entity NBT Generator" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Run">
+            <Menu mnemonicParsing="false" text="Build">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Run">
+                  <MenuItem mnemonicParsing="false" onAction="#build" text="Build">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="F9" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Run Resource Pack" />
-                  <MenuItem mnemonicParsing="false" text="Run Data Pack" />
+                  <MenuItem mnemonicParsing="false" onAction="#buildresources" text="Build Resources" />
+                  <MenuItem mnemonicParsing="false" onAction="#builddata" text="Build Data" />
+                  <MenuItem mnemonicParsing="false" onAction="#openbuildconfig" text="Build Configuration" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">

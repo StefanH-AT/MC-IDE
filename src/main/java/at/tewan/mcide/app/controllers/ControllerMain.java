@@ -1,7 +1,7 @@
 package at.tewan.mcide.app.controllers;
 
 import at.tewan.mcide.Resources;
-import at.tewan.mcide.app.NewProjectDialog;
+import at.tewan.mcide.app.dialogs.NewProjectDialog;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.settings.GlobalSettings;
 import at.tewan.mcide.filters.ExtensionFilters;
@@ -23,7 +23,6 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private AnchorPane assetsTab, functionTab, recipesTab, advancementsTab, loottablesTab, tagsTab;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,6 +90,26 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private void settings() {
+
+    }
+
+    @FXML
+    private void build() {
+
+    }
+
+    @FXML
+    private void buildresources() {
+
+    }
+
+    @FXML
+    private void builddata() {
+
+    }
+
+    @FXML
+    private void openbuildconfig() {
 
     }
 

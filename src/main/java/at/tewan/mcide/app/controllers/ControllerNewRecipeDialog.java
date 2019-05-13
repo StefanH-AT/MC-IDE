@@ -1,6 +1,6 @@
 package at.tewan.mcide.app.controllers;
 
-import at.tewan.mcide.app.NewRecipeDialog;
+import at.tewan.mcide.app.dialogs.NewRecipeDialog;
 import at.tewan.mcide.enums.RecipeType;
 import at.tewan.mcide.filters.Filters;
 import javafx.fxml.FXML;
