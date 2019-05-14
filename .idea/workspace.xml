@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ae7db90-2c1c-4d92-bf07-8ae12940b7f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Resources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/SyntaxArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/SyntaxArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/item/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/item/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/Icons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StartParameterException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StartParameterException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StartParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StartParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StringUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -41,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1592">
+            <state relative-caret-position="-1259">
               <caret line="55" column="81" selection-start-line="55" selection-start-column="81" selection-end-line="55" selection-end-column="81" />
               <folding>
                 <element signature="e#4818#4819#0" expanded="true" />
@@ -64,6 +51,15 @@
                 <element signature="e#5897#5898#0" expanded="true" />
                 <element signature="e#5962#5963#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StringUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -103,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/recipes/json/CraftingKeyList.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/recipes/json/CraftingKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/recipes/json/CraftingShaped.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/recipes/json/CraftingShapeless.java" />
@@ -154,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/settings/GlobalSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StringUtil.java" />
       </list>
     </option>
   </component>
@@ -500,18 +496,6 @@
     <SUITE FILE_PATH="coverage/MC_IDE$MC_IDE.ic" NAME="MC-IDE Coverage Results" MODIFIED="1555621183329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="346">
-            <caret line="17" column="324" selection-start-line="17" selection-start-column="324" selection-end-line="17" selection-end-column="324" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/util/Callback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
@@ -944,7 +928,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1592">
+        <state relative-caret-position="-1259">
           <caret line="55" column="81" selection-start-line="55" selection-start-column="81" selection-end-line="55" selection-end-column="81" />
           <folding>
             <element signature="e#4818#4819#0" expanded="true" />
@@ -964,6 +948,13 @@
             <element signature="e#5897#5898#0" expanded="true" />
             <element signature="e#5962#5963#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>
