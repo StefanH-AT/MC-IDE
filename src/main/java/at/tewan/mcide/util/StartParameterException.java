@@ -1,5 +1,9 @@
 package at.tewan.mcide.util;
 
+/**
+ * Ported from Pagnum
+ *
+ * */
 public class StartParameterException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1304364261518223168L;

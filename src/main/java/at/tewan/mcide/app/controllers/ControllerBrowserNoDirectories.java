@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Wie at.tewan.mcide.app.controllers.ControllerBrowser aber ohne directory tree
+ *
+ * */
 public abstract class ControllerBrowserNoDirectories implements Initializable {
 
     ControllerBrowserNoDirectories(String rootName, boolean packType) {
@@ -31,7 +35,7 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
     @FXML
     private Accordion browser;
 
-    @Override
+
     public void initialize(URL location, ResourceBundle resources) {
         refresh();
     }

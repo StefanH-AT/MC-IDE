@@ -20,7 +20,7 @@ public class Commands {
     public static void init() {
         Gson gson = new Gson();
 
-        CommandDefinitions definitions = gson.fromJson(new InputStreamReader(Resources.getLocalResource("definitions/commands_1132.json")), CommandDefinitions.class);
+        CommandDefinitions definitions = gson.fromJson(new InputStreamReader(Resources.getResource("definitions/commands_1132.json")), CommandDefinitions.class);
 
         // Root Command Objekt erstellen
         for(CommandDefinitionNode node : definitions.getCommands()) {

@@ -8,9 +8,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Enthält globale Einsellungen für MC-IDE.
+ * Die config Datei wird im root Verzeichnis der Ausführung liegen.
+ * */
 public class GlobalSettings {
 
-    private static String settingsFileName = "settings.definitions";
+    private static String settingsFileName = "settings.json";
     private static File settingsFile = new File(settingsFileName);
     private static Settings settings;
 
@@ -39,10 +43,13 @@ public class GlobalSettings {
         System.out.println("Minecraft directory: " + settings.getMcDir());
     }
 
+    /**
+     * Speichert die Config als datei
+     * */
     public static void saveConfig() {
         try {
 
-            System.out.println("Generating default settings.definitions in " + settingsFile.toString());
+            System.out.println("Generating default settings.json in " + settingsFile.toString());
 
             FileWriter writer = new FileWriter(settingsFile);
             writer.write(gson.toJson(settings));

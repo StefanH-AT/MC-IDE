@@ -11,10 +11,20 @@ import java.io.InputStream;
 
 public class Resources {
 
-    public static InputStream getLocalResource(String name) {
+    /**
+     * @return InputStream der Resource die aus dem classpath geladen wird.
+     *
+     * */
+    public static InputStream getResource(String name) {
         return Resources.class.getClassLoader().getResourceAsStream(name);
     }
 
+    /**
+     * @return Root Parent Node der FXML Datei
+     * Lädt eine FXML Datei aus "/javafx/" aus dem Classpath und hängt ".fxml" an.
+     * Beispiel: Wenn "main" übergeben wird, wird "/javafx/main.fxml" geladen.
+     *
+     * */
     public static Parent getFXML(String name) throws IOException {
         return FXMLLoader.load(Resources.class.getResource("/javafx/" + name + ".fxml"));
     }
@@ -24,6 +34,9 @@ public class Resources {
         return null;
     }
 
+    /**
+     * @return Den Pfad zum workspace Directory (Standard .minecraft/ide)
+     * */
     public static String getWorkspaceDir() {
         return GlobalSettings.getSettings().getMcDir() + "/ide/";
     }

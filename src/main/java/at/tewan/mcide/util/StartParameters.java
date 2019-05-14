@@ -6,6 +6,11 @@ import java.util.HashMap;
 // Evar = Environment Variable. These are variables, you can change on game start and during runtime.
 //
 
+
+/**
+ * Ported from Pagnum
+ *
+ */
 public class StartParameters {
 	
 	

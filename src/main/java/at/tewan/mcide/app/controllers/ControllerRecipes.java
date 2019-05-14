@@ -22,7 +22,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Die Controller Klasse des Rezept Tabs.
+ *
+ *
+ * */
 public class ControllerRecipes extends ControllerBrowserNoDirectories {
 
     private Recipe currentRecipe;
@@ -61,7 +65,10 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     private VBox dropDelete;
 
     @FXML
-    private TextField itemSearch, resultCount, renameInput, groupInput;
+    private TextField itemSearch, renameInput, groupInput;
+
+    @FXML
+    private ChoiceBox<String> namespaceFilter;
 
     @FXML
     private ToggleButton regex;
@@ -69,25 +76,36 @@ public class ControllerRecipes extends ControllerBrowserNoDirectories {
     @FXML
     private ListViewDragDrop itemList;
 
-
-
     @FXML
-    private VBox ingredientList;
+    private StackPane stackPane;
 
-    @FXML
-    private GridPane craftingTable;
-
-    @FXML
-    private ListViewDragDrop ingredientListView;
+// =================================================================
+//                       RESULT
+// =================================================================
 
     @FXML
     private ItemSlotPane result;
 
     @FXML
-    private StackPane stackPane;
+    private TextField resultCount;
+
+// =================================================================
+//                       Shaped Crafting
+// =================================================================
 
     @FXML
-    private ChoiceBox<String> namespaceFilter;
+    private GridPane craftingTable;
+
+// =================================================================
+//                       Shapeless Crafting
+// =================================================================
+
+    @FXML
+    private ListViewDragDrop ingredientListView;
+
+    @FXML
+    private VBox ingredientList;
+
 
     @FXML
     private void newrecipe() {

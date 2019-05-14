@@ -19,7 +19,7 @@ public class Items {
         try {
 
             //List<String> list = Files.readAllLines(new File("definitions/items_13.txt").toPath());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(Resources.getLocalResource("definitions/items_13.txt")));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Resources.getResource("definitions/items_13.txt")));
 
             List<String> list = new ArrayList<>();
             String line;
@@ -67,7 +67,7 @@ public class Items {
 
         // Bild ist noch nicht im Array => Neues erstellen
         if(itemThumbnails[index] == null) {
-            itemThumbnails[index] = new Image(Resources.getLocalResource("img/items/" + item + ".png"));
+            itemThumbnails[index] = new Image(Resources.getResource("img/items/" + item + ".png"));
         }
 
         return itemThumbnails[index];

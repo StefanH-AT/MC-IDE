@@ -7,6 +7,10 @@ import at.tewan.mcide.settings.GlobalSettings;
 import at.tewan.mcide.util.StartParameters;
 import javafx.application.Application;
 
+/**
+ * Alles beginnt in der Main. Hier werden statische seperate Codesegmente initialisiert.
+ *
+ * */
 public class Main {
     public static void main(String[] args) {
         StartParameters.resolveStartArgs(args);
