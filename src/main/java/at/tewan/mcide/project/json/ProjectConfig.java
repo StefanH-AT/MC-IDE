@@ -6,6 +6,7 @@ public class ProjectConfig {
 
     private String name;
     private String author;
+    private String worldname;
 
     public String getName() {
         return name;
@@ -33,4 +34,11 @@ public class ProjectConfig {
 
     private ArrayList<String> namespaces;
 
+    public String getWorldname() {
+        return worldname;
+    }
+
+    public void setWorldname(String worldname) {
+        this.worldname = worldname;
+    }
 }

@@ -20,6 +20,7 @@ import java.util.Arrays;
  * */
 public class Project {
 
+    // Das aktive Projekt
     private static ProjectConfig currentProject;
 
     private static PackDefinition resourceDefinition, dataDefinition;
@@ -28,9 +29,6 @@ public class Project {
     // Die Versionnummern die in die
     private static final int DATAPACK_VERSION = 1;
     private static final int RESOURCEPACK_VERSION = 4;
-
-    // Die Welt zu der die Packs beim builden kopiert werden soll
-    private static String projectWorld = "test";
 
     /**
      * Erstellt ein neues Projekt
@@ -117,7 +115,6 @@ public class Project {
     }
 
     /**
-     *
      * @param data Ob das Datapack kopiert werden soll
      * @param resource Ob das Resourcepack kopiert werden soll
      */
@@ -174,15 +171,25 @@ public class Project {
     }
 
     public static String getResourceDestDir() {
+
+        // Wenn noch keine Welt festgelegt wurde, soll null zurückgegeben werden.
+        if(getDestDir() == null) return null;
+
         return getDestDir() + "resource.zip";
     }
 
     public static String getDataDestDir() {
+
+        // Wenn noch keine Welt festgelegt wurde, soll null zurückgegeben werden.
+        if(getDestDir() == null) return null;
+
         return getDestDir() + "datapacks/" + currentProject.getName();
     }
 
     public static String getDestDir() {
-        return GlobalSettings.getSettings().getMcDir() + "/saves/" + projectWorld + "/";
+        if(currentProject.getWorldname() == null) return null;
+
+        return GlobalSettings.getSettings().getMcDir() + "/saves/" + currentProject.getWorldname() + "/";
     }
 
     public static String getNamespaceResource(String namespace) {
@@ -195,5 +202,9 @@ public class Project {
 
     public static String getNamespaceFunctions(String namespace) {
         return getNamespaceData(namespace) + "functions/";
+    }
+
+    public static ProjectConfig getCurrentProject() {
+        return currentProject;
     }
 }
