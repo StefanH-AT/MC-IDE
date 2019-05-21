@@ -1,10 +1,6 @@
 package at.tewan.mcide.app.controls;
 
-import at.tewan.mcide.app.controls.FeaturedCodeArea;
-import at.tewan.mcide.mcfunction.command.Command;
-import at.tewan.mcide.mcfunction.command.CommandNode;
-import at.tewan.mcide.mcfunction.command.Commands;
-import at.tewan.mcide.mcfunction.command.SelectorNode;
+import at.tewan.mcide.mcfunction.command.*;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
 import javafx.scene.control.ListView;
@@ -38,9 +34,7 @@ public class CompletionPane extends VBox {
             if(event.getCode() == KeyCode.ENTER)
                 insertCompletion();
         });
-        completionListView.setOnMouseClicked(event -> {
-            insertCompletion();
-        });
+        completionListView.setOnMouseClicked(event -> insertCompletion());
         completions = completionListView.getItems();
         getChildren().add(completionListView);
 
@@ -92,7 +86,7 @@ public class CompletionPane extends VBox {
     }
 
     private void insertCompletion() {
-        String textToInsert = completionListView.getSelectionModel().getSelectedItem() + " ";
+        String textToInsert = completionListView.getSelectionModel().getSelectedItem();
 
         int pos = area.getCaretPosition();
         area.insertText(pos, textToInsert);
@@ -104,31 +98,28 @@ public class CompletionPane extends VBox {
 
     private void determineContext(String line) {
         completions.clear();
-        System.out.println("Analysiere '" + line + "' ...");
 
 
         String[] lineArgs = line.split(" ");
         String cmdName = lineArgs[0];
 
-        System.out.println("Command Name: " + cmdName);
-
         // Zeile leer, neuen Command anfangen
         if(line.trim().isEmpty()) {
-            completions.addAll(Commands.getCommands().keySet());
+            //completions.addAll(Commands.getCommands().keySet());
+            addToCompletions(Commands.getCommands().values().toArray(new CommandNode[Commands.getCommands().size()]));
             return;
         }
 
-        // Wenn der Command falsch geschrieben wurde, abbrechen
-        if(!Commands.getCommandsList().contains(cmdName)) return;
 
         // execute as @e[type=pig run kill @s
         // CMD    CMD   SEL       REF CMD SEL
 
-        // TODO: Fixen
-
         // Das Argument das iteriert wird (Startet beim command namen)
         CommandNode currentArg = Commands.getCommands().get(cmdName);
 
+        // =============================
+        //      Autocomplete Logik
+        // =============================
         // Alle Argumente iterieren
         for(int i = 0; i < lineArgs.length; i++) {
             String arg = lineArgs[i];
@@ -150,6 +141,7 @@ public class CompletionPane extends VBox {
             }
 
             // Wenn Argument letztes Element ist, alle Children in die Liste schreiben
+            // Außerdem muss das
             if(i == lineArgs.length - 1) {
                 addToCompletions(currentArg.getChildren());
                 break;
@@ -159,27 +151,24 @@ public class CompletionPane extends VBox {
     }
 
     private boolean isArgumentOfSameType(String argument, CommandNode expected) {
-
-        if(expected instanceof Command) {
-            return argument.equals(((Command) expected).getName());
-        } else if(expected instanceof SelectorNode) {
-            return SelectorNode.SelectorType.getAllSelectorTypesAsString().contains(argument);
-        } else {
-            return false;
-        }
+        return expected.checkPattern(argument);
     }
 
-    private void addToCompletions(CommandNode... nodes) {
+    private void addToCompletions(CommandNode[] nodes) {
         for(CommandNode node : nodes) {
 
-            // Der Input String wird auf Leerzeichen gesplittet
-            // Beispiel: Selektoren werden durch Leerzeichen terminiert, damit in einem String
+            // Der Input String wird auf Pipes gesplittet
+            // Beispiel: Selektoren werden durch Pipes terminiert, damit in einem String
             // alle übergeben werden können.
             // (@s @e @r...)
-            completions.addAll(node.getCompletion().split(" "));
+            completions.addAll(node.getCompletion().split("\\|"));
         }
 
         // Alphabetisch sortieren (Ergibt sinn oder?)
         completions.sort(String::compareTo);
+
+        for(String str : completions) {
+            System.out.println("'" + str + "'");
+        }
     }
 }

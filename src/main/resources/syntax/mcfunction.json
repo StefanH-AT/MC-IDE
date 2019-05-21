@@ -1,6 +1,5 @@
 {
-  "syntax": [
-
+  "syntaxPatterns": [
 
     {
       "pattern": "^#[^\\n]+",
@@ -9,12 +8,32 @@
 
     {
       "pattern": "[\\w_]+:[\\w_]+",
-      "name": "namespace"
+      "name": "content"
     },
 
     {
       "pattern":  "@[prsea]",
-      "name": "selectortype"
+      "name": "selector"
+    },
+
+    {
+      "pattern": "((-?\\\\d+)(.\\\\d+)?)",
+      "name": "number"
+    },
+
+    {
+      "pattern": "(true|false)",
+      "name": "boolean"
+    },
+
+    {
+      "pattern": "\\w+",
+      "name": "command"
+    },
+
+    {
+      "pattern": "",
+      "name": "reference"
     }
   ]
 }

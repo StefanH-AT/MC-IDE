@@ -1,6 +1,7 @@
 package at.tewan.mcide.mcfunction.command;
 
 import at.tewan.mcide.enums.ContentType;
+import at.tewan.mcide.mcfunction.SyntaxPattern;
 import at.tewan.mcide.project.Project;
 
 public class ContentNode extends CommandNode {
@@ -14,20 +15,20 @@ public class ContentNode extends CommandNode {
 
     private static final String ONLY_MINECRAFT = "mc-only";
 
-    public ContentNode(String mode, ContentNode... nodes) {
-        super(nodes);
+    public ContentNode(SyntaxPattern syntaxPattern, String mode) {
+        super(syntaxPattern);
         this.mode = mode;
 
     }
 
     @Override
     public String getCompletion() {
-        String completions = "minecraft: ";
+        String completions = "minecraft:";
 
         if(!mode.equals(ONLY_MINECRAFT)) {
             // Alle Namespace aus dem Projekt zurückgeben (Durch Leerzeichen Terminiert)
             for (String nspace : Project.getNamespaces()) {
-                completions += "#" + nspace + ": ";
+                completions += "#" + nspace + ":";
             }
         }
 

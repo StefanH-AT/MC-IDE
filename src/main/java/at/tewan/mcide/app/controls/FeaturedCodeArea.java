@@ -1,5 +1,6 @@
 package at.tewan.mcide.app.controls;
 
+import at.tewan.mcide.mcfunction.Syntax;
 import javafx.scene.input.ScrollEvent;
 import org.fxmisc.richtext.LineNumberFactory;
 
@@ -7,8 +8,8 @@ public class FeaturedCodeArea extends SyntaxArea {
 
     private int fontSize = 14;
 
-    public FeaturedCodeArea(String syntaxName) {
-        super(syntaxName);
+    public FeaturedCodeArea(Syntax syntax) {
+        super(syntax);
 
         setParagraphGraphicFactory(LineNumberFactory.get(this));
         addEventFilter(ScrollEvent.ANY, event -> {

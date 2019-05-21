@@ -1,10 +1,13 @@
 package at.tewan.mcide.mcfunction.command;
 
+import at.tewan.mcide.mcfunction.SyntaxPattern;
+
 public class BooleanNode extends CommandNode {
 
     private boolean value;
 
-    public BooleanNode(boolean num) {
+    public BooleanNode(SyntaxPattern syntaxPattern, boolean num) {
+        super(syntaxPattern);
         this.value = num;
     }
 
@@ -14,6 +17,6 @@ public class BooleanNode extends CommandNode {
 
     @Override
     public String getCompletion() {
-        return value + "";
+        return value + " ";
     }
 }

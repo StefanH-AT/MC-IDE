@@ -1,10 +1,13 @@
 package at.tewan.mcide.mcfunction.command;
 
+import at.tewan.mcide.mcfunction.SyntaxPattern;
+
 public class NumberNode extends CommandNode {
 
     private float value;
 
-    public NumberNode(float num) {
+    public NumberNode(SyntaxPattern syntaxPattern, float num) {
+        super(syntaxPattern);
         this.value = num;
     }
 
@@ -14,6 +17,6 @@ public class NumberNode extends CommandNode {
 
     @Override
     public String getCompletion() {
-        return value + "";
+        return value + " ";
     }
 }

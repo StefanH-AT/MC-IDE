@@ -1,6 +1,8 @@
 package at.tewan.mcide.mcfunction.command;
 
 import at.tewan.mcide.Resources;
+import at.tewan.mcide.mcfunction.Syntax;
+import at.tewan.mcide.mcfunction.SyntaxPattern;
 import at.tewan.mcide.mcfunction.command.json.CommandDefinitionNode;
 import at.tewan.mcide.mcfunction.command.json.CommandDefinitions;
 import com.google.gson.Gson;
@@ -11,21 +13,20 @@ import java.util.HashMap;
 
 public class Commands {
 
-
     // Die Definition nodes werden direkt aus dem JSON heraus geladen und dann zu CommandNodes umgewandelt.
     // Command Nodes haben dann mehrere Funktionen für Syntax und completion.
 
     private static HashMap<String, Command> COMMANDS = new HashMap<>();
 
-    public static void init() {
+    public static void init(Syntax syntax) {
         Gson gson = new Gson();
 
-        CommandDefinitions definitions = gson.fromJson(new InputStreamReader(Resources.getResource("definitions/commands_1132.json")), CommandDefinitions.class);
+        CommandDefinitions definitions = gson.fromJson(new InputStreamReader(Resources.getResource("definitions/commands.json")), CommandDefinitions.class);
 
         // Root Command Objekt erstellen
         for(CommandDefinitionNode node : definitions.getCommands()) {
-            Command cmd = (Command) toCommandNode(node);
-            cmd.setChildren(getChildren(node));
+            Command cmd = (Command) toCommandNode(syntax, node);
+            cmd.setChildren(getChildren(syntax, node));
 
             COMMANDS.put(node.getValue(), cmd);
 
@@ -35,7 +36,7 @@ public class Commands {
     }
 
     // Rekursionen YAY!
-    private static CommandNode[] getChildren(CommandDefinitionNode parent) {
+    private static CommandNode[] getChildren(Syntax syntax, CommandDefinitionNode parent) {
 
         // Wenn das parent keine Kinder hat, null zurückgeben
         if(parent.getChildren() == null) return null;
@@ -44,8 +45,8 @@ public class Commands {
         // Alle Kinder zum parent hinzufügen
         for(int i = 0; i < children.length; i++) {
 
-            children[i] = toCommandNode(parent.getChildren().get(i));
-            children[i].setChildren(getChildren(parent.getChildren().get(i)));
+            children[i] = toCommandNode(syntax, parent.getChildren().get(i));
+            children[i].setChildren(getChildren(syntax, parent.getChildren().get(i)));
 
         }
 
@@ -53,36 +54,33 @@ public class Commands {
     }
 
     // Commands Definition Datei wird hier geparst
-    private static CommandNode toCommandNode(CommandDefinitionNode defNode) {
+    private static CommandNode toCommandNode(Syntax syntax, CommandDefinitionNode defNode) {
         CommandNode toReturn = null;
 
-        switch (defNode.getType()) {
+        String type = defNode.getType();
+        switch (type) {
             case "command":
-                toReturn = new Command(defNode.getValue());
-            break;
-
-            case "subcommand":
-                toReturn = new Command(defNode.getValue());
+                toReturn = new Command(syntax.getSyntaxPattern(type), defNode.getValue());
             break;
 
             case "selector":
-                toReturn = new SelectorNode(null);
+                toReturn = new SelectorNode(syntax.getSyntaxPattern(type), null);
             break;
 
             case "definitions":
-                toReturn = new JsonNode(null);
+                toReturn = new JsonNode(syntax.getSyntaxPattern(type), null);
             break;
 
             case "reference":
-                toReturn = new ReferenceNode(defNode.getValue());
+                toReturn = new ReferenceNode(syntax.getSyntaxPattern(type), defNode.getValue());
             break;
 
             case "content":
-                toReturn = new ContentNode(defNode.getValue());
+                toReturn = new ContentNode(syntax.getSyntaxPattern(type), defNode.getValue());
             break;
 
             case "number":
-                toReturn = new NumberNode(0);
+                toReturn = new NumberNode(syntax.getSyntaxPattern(type), 0);
             break;
 
             default:
@@ -100,15 +98,26 @@ public class Commands {
         return COMMANDS.keySet();
     }
 
-    public static CommandNode determineArgType(String arg) {
+    /**
+     * @deprecated
+     */
+    public static CommandNode determineArgType(Syntax syntax, String arg) {
+        /*
         System.out.println("Parsing '" + arg + "'");
 
         CommandNode toReturn;
 
         // Selector
-        if(arg.startsWith("@")) {
-            toReturn = new SelectorNode(SelectorNode.SelectorType.valueOf(arg.charAt(1) + ""));
-        } else if(arg.startsWith("{")) {
+
+        SyntaxPattern pattern = syntax.getName(arg);
+        switch (pattern) {
+            case "selector":
+                toReturn = new SelectorNode(pattern, SelectorNode.SelectorType.valueOf(arg.charAt(1) + ""));
+            break;
+
+            case: "content":
+                toReturn = new ContentNode(pattern, );
+        }
             toReturn = new JsonNode(arg);
         } else if(arg.matches("\\w+:\\w+")) {
             toReturn = new ContentNode(arg);
@@ -122,6 +131,7 @@ public class Commands {
 
         System.out.println("Interpreted '" + arg + "' as " + toReturn.getClass().getSimpleName());
 
-        return toReturn;
+        return toReturn; */
+        return null;
     }
 }

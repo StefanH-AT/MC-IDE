@@ -1,8 +1,12 @@
 package at.tewan.mcide.app.controllers;
 
+import at.tewan.mcide.Resources;
 import at.tewan.mcide.app.controls.CodeTab;
+import at.tewan.mcide.mcfunction.Syntax;
+import at.tewan.mcide.mcfunction.command.Commands;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.filters.ExtensionFilters;
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -10,6 +14,7 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,9 +23,14 @@ public class ControllerFunctions extends ControllerBrowser {
     @FXML
     private TabPane tabPane;
 
+    private Syntax syntax;
 
     public ControllerFunctions() {
         super("Functions", ControllerBrowser.DATAPACK, new String[]{"functions"}, new String[]{"Functions"});
+
+        Gson json = new Gson();
+        syntax = json.fromJson(new InputStreamReader(Resources.getResource("syntax/mcfunction.json")), Syntax.class);
+        Commands.init(syntax);
     }
 
     @Override
@@ -42,8 +52,6 @@ public class ControllerFunctions extends ControllerBrowser {
             if(tab instanceof  CodeTab) {
                 CodeTab codeTab = (CodeTab) tab;
 
-                System.out.println(file.toString());
-
                 // Wenn die Datei schon geöffnet ist, diesen Tab öffnen und methode hier abbrechen
                 if(codeTab.getFile() == file) {
                     tabPane.getSelectionModel().select(tab);
@@ -53,7 +61,7 @@ public class ControllerFunctions extends ControllerBrowser {
         }
 
         // Wenn die Datei noch nicht geöffnet ist, wird ein neuer Tab erstellt
-        tabPane.getTabs().add(new CodeTab(tabPane, file));
+        tabPane.getTabs().add(new CodeTab(tabPane, file, syntax));
     }
 
     // Öffnet ein Dialog Fenster um eine neue Datei zu erstellen
@@ -72,8 +80,7 @@ public class ControllerFunctions extends ControllerBrowser {
             exception.printStackTrace();
         }
 
-        tabPane.getTabs().add(new CodeTab(tabPane, newFile));
+        tabPane.getTabs().add(new CodeTab(tabPane, newFile, syntax));
     }
-
 
 }

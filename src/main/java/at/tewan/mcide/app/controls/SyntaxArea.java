@@ -20,16 +20,15 @@ public class SyntaxArea extends CodeArea {
     protected Pattern pattern;
     protected Syntax syntax;
 
-    public SyntaxArea(String syntaxName) {
-        Gson json = new Gson();
+    public SyntaxArea(Syntax syntax) {
+        this.syntax = syntax;
 
-        String syntaxDir = "syntax/";
+        System.out.println(syntax.getSyntaxPatterns().size());
 
-        syntax = json.fromJson(new InputStreamReader(Resources.getResource(syntaxDir + syntaxName + ".json")), Syntax.class);
-        getStylesheets().add(syntaxDir + syntaxName + ".css");
+        getStylesheets().add("syntax/mcfunction.css");
 
         String regex = "";
-        for(SyntaxPattern pattern : syntax.getSyntax()) {
+        for(SyntaxPattern pattern : syntax.getSyntaxPatterns()) {
             regex += "(?<" + pattern.getName().toUpperCase() + ">" + pattern.getPattern() + ")|";
         }
 
@@ -39,9 +38,9 @@ public class SyntaxArea extends CodeArea {
         // Compiling the regex
         pattern = Pattern.compile(regex);
 
-        multiPlainChanges().successionEnds(Duration.ofMillis(200)).subscribe(ignore -> {
-            setStyleSpans(0, updateSyntaxHighlighting());
-        });
+        multiPlainChanges().successionEnds(Duration.ofMillis(200)).subscribe(ignore ->
+            setStyleSpans(0, updateSyntaxHighlighting())
+        );
     }
 
     private StyleSpans<Collection<String>> updateSyntaxHighlighting() {
@@ -55,7 +54,7 @@ public class SyntaxArea extends CodeArea {
         while(matcher.find()) {
             String styleClass = "";
 
-            for(SyntaxPattern syntax : syntax.getSyntax()) {
+            for(SyntaxPattern syntax : syntax.getSyntaxPatterns()) {
 
                 if(matcher.group(syntax.getName().toUpperCase()) != null) {
                     styleClass = syntax.getName();
@@ -71,4 +70,5 @@ public class SyntaxArea extends CodeArea {
         spansBuilder.add(Collections.emptyList(), text.length() - lastKwEnd);
         return spansBuilder.create();
     }
+
 }

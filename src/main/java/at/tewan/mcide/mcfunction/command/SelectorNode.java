@@ -1,11 +1,13 @@
 package at.tewan.mcide.mcfunction.command;
 
+import at.tewan.mcide.mcfunction.SyntaxPattern;
+
 public class SelectorNode extends CommandNode {
 
     private SelectorType type;
 
-    public SelectorNode(SelectorType type, CommandNode... nodes) {
-        super(nodes);
+    public SelectorNode(SyntaxPattern syntaxPattern, SelectorType type, CommandNode... nodes) {
+        super(syntaxPattern, nodes);
         this.type = type;
     }
 
@@ -16,7 +18,7 @@ public class SelectorNode extends CommandNode {
             String toReturn = "";
 
             for(SelectorType type : values()) {
-                toReturn += "@" + type.name() + " ";
+                toReturn += "@" + type.name() + " |";
             }
 
             return toReturn;
@@ -27,4 +29,5 @@ public class SelectorNode extends CommandNode {
     public String getCompletion() {
         return SelectorType.getAllSelectorTypesAsString();
     }
+
 }

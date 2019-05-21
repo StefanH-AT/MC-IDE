@@ -1,13 +1,20 @@
 package at.tewan.mcide.mcfunction.command;
 
+import at.tewan.mcide.mcfunction.SyntaxPattern;
+
 import java.util.Arrays;
 
 public abstract class CommandNode {
 
     private CommandNode[] children = null;
 
-    CommandNode(CommandNode... children) {
+    private SyntaxPattern syntax;
+
+    protected CommandNode(SyntaxPattern syntax, CommandNode... children) {
         this.children = children;
+        this.syntax = syntax;
+
+        System.out.println(syntax + getClass().getSimpleName());
     }
 
     public void setChildren(CommandNode[] children) {
@@ -27,4 +34,8 @@ public abstract class CommandNode {
     }
 
     public abstract String getCompletion();
+
+    public boolean checkPattern(String arg) {
+        return arg.matches(syntax.getPattern());
+    }
 }

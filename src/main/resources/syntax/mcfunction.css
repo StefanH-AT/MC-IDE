@@ -19,10 +19,14 @@
     -fx-fill: #666666;
 }
 
-.styled-text-area .namespace {
+.styled-text-area .content {
     -fx-fill: #FF9B35;
 }
 
-.styled-text-area .selectortype {
+.styled-text-area .selector {
     -fx-fill: #D31D84;
+}
+
+.styled-text-area .number {
+    -fx-fill: #D8CA3E;
 }

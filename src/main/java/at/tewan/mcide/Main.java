@@ -16,7 +16,6 @@ public class Main {
         StartParameters.resolveStartArgs(args);
 
         GlobalSettings.loadConfig();
-        Commands.init();
         Items.init();
 
         Application.launch(MainApplication.class, args);

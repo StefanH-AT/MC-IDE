@@ -1,5 +1,6 @@
 package at.tewan.mcide.app.controls;
 
+import at.tewan.mcide.mcfunction.Syntax;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tab;
@@ -28,8 +29,8 @@ public class CodeTab extends Tab {
 
     private StackPane container;
 
-    public CodeTab(TabPane pane, File initialFile) {
-        area = new FeaturedCodeArea("mcfunction");
+    public CodeTab(TabPane pane, File initialFile, Syntax syntax) {
+        area = new FeaturedCodeArea(syntax);
         file = initialFile;
         fileName = file.getName();
         tabPane = pane;
@@ -79,9 +80,11 @@ public class CodeTab extends Tab {
         // Code completions
         CompletionPane completionPane = new CompletionPane(area);
 
-
-
         container.getChildren().add(completionPane);
+
+        area.setOnMousePressed(event -> {
+            completionPane.hide();
+        });
     }
 
     /**

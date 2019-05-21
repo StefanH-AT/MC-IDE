@@ -1,13 +1,14 @@
 package at.tewan.mcide.mcfunction.command;
 
+import at.tewan.mcide.mcfunction.SyntaxPattern;
+
 public class Command extends CommandNode {
 
     private String name;
-    private CommandNode[] nodes;
 
-    public Command(String name, CommandNode... nodes) {
+    public Command(SyntaxPattern syntaxPattern, String name, CommandNode... nodes) {
+        super(syntaxPattern, nodes);
         this.name = name;
-        this.nodes = nodes;
     }
 
     public String getName() {
@@ -16,6 +17,6 @@ public class Command extends CommandNode {
 
     @Override
     public String getCompletion() {
-        return getName();
+        return getName() + " ";
     }
 }
