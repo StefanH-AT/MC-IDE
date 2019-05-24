@@ -83,6 +83,10 @@ public class Commands {
                 toReturn = new NumberNode(syntax.getSyntaxPattern(type), Float.parseFloat(defNode.getValue()));
             break;
 
+            case "coordinate":
+                toReturn = new CoordinateNode(syntax.getSyntaxPattern(type));
+            break;
+
             default:
                 System.out.println("Command type " + defNode.getType() + " unknown. Returning NULL!");
         }

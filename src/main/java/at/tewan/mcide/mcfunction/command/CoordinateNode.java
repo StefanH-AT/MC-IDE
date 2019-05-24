@@ -11,4 +11,6 @@ public class CoordinateNode extends CommandNode {
     public String getCompletion() {
         return "~|^";
     }
+
+
 }
