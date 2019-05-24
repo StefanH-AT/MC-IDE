@@ -6,9 +6,9 @@ public class NumberNode extends CommandNode {
 
     private float value;
 
-    public NumberNode(SyntaxPattern syntaxPattern, float num) {
+    public NumberNode(SyntaxPattern syntaxPattern, float value) {
         super(syntaxPattern);
-        this.value = num;
+        this.value = value;
     }
 
     public float getValue() {
@@ -17,6 +17,11 @@ public class NumberNode extends CommandNode {
 
     @Override
     public String getCompletion() {
-        return value + " ";
+
+        // Wenn es keine Nachkommerstellen gibt, diese abschneiden, damit 0 statt 0.0 ausgegeben wird
+        if((int) value == value)
+            return ((int) value) + " ";
+        else
+            return value + " ";
     }
 }

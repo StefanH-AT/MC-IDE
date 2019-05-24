@@ -8,6 +8,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 
+/**
+ * Die Completion Pane des mcfunction editors.
+ * BEINHÄLT DEN KERN DES PARSERS
+ *
+ */
 public class CompletionPane extends VBox {
 
     private FeaturedCodeArea area;
@@ -69,11 +74,14 @@ public class CompletionPane extends VBox {
     }
 
     public void show() {
-        setVisible(true);
+
         determineContext(area.getText(area.getCurrentParagraph()));
-        completionListView.requestFocus();
-        if(completions.size() > 0)
+
+        if(completions.size() > 0) {
             completionListView.getSelectionModel().select(0);
+            setVisible(true);
+            completionListView.requestFocus();
+        }
     }
 
     public void hide() {

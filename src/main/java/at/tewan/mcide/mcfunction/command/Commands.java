@@ -80,7 +80,7 @@ public class Commands {
             break;
 
             case "number":
-                toReturn = new NumberNode(syntax.getSyntaxPattern(type), 0);
+                toReturn = new NumberNode(syntax.getSyntaxPattern(type), Float.parseFloat(defNode.getValue()));
             break;
 
             default:

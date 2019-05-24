@@ -70,6 +70,35 @@
           ]
         }
       ]
+    },
+
+    {
+      "type": "command",
+      "value": "tp",
+      "children": [
+        {
+          "type": "selector",
+          "children": [
+            {
+              "type": "coordinate",
+              "children": [
+                {
+                  "type": "coordinate",
+                  "children": [
+                    {
+                      "type": "coordinate"
+                    }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "type": "selector"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
