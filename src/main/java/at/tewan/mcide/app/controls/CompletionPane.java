@@ -174,9 +174,5 @@ public class CompletionPane extends VBox {
 
         // Alphabetisch sortieren (Ergibt sinn oder?)
         completions.sort(String::compareTo);
-
-        for(String str : completions) {
-            System.out.println("'" + str + "'");
-        }
     }
 }

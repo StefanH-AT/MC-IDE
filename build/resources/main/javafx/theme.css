@@ -173,3 +173,19 @@
 .check-box:checked > .box > .mark {
     -fx-background-color: -fx-color-text;
 }
+
+.statusbar {
+    -fx-background-color: -fx-color-widget;
+}
+
+.progress-bar > .track {
+    -fx-background-color: -fx-color-widget;
+    -fx-border-color: -fx-color-border;
+    -fx-border-radius: 0;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: -fx-color-highlight;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}

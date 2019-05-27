@@ -8,6 +8,8 @@ import at.tewan.mcide.filters.ExtensionFilters;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
@@ -15,6 +17,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ControllerMain implements Initializable {
 
@@ -24,25 +28,21 @@ public class ControllerMain implements Initializable {
     @FXML
     private AnchorPane assetsTab, functionTab, recipesTab, advancementsTab, loottablesTab, tagsTab;
 
+    @FXML
+    private Label ramText;
+
+    @FXML
+    private ProgressBar ramProgress;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        assetsScene.widthProperty().bind(assetsTab.widthProperty());
-        assetsScene.heightProperty().bind(assetsTab.heightProperty());
 
-        functionScene.widthProperty().bind(functionTab.widthProperty());
-        functionScene.heightProperty().bind(functionTab.heightProperty());
-
-        recipesScene.widthProperty().bind(recipesTab.widthProperty());
-        recipesScene.heightProperty().bind(recipesTab.heightProperty());
-
-        advancementsScene.widthProperty().bind(advancementsTab.widthProperty());
-        advancementsScene.heightProperty().bind(advancementsTab.heightProperty());
-
-        loottablesScene.widthProperty().bind(loottablesTab.widthProperty());
-        loottablesScene.heightProperty().bind(loottablesTab.heightProperty());
-
-        tagsScene.widthProperty().bind(tagsTab.widthProperty());
-        tagsScene.heightProperty().bind(tagsTab.heightProperty());
+        bindProperties(assetsScene, assetsTab);
+        bindProperties(functionScene, functionTab);
+        bindProperties(recipesScene, recipesTab);
+        bindProperties(advancementsScene, advancementsTab);
+        bindProperties(loottablesScene, loottablesTab);
+        bindProperties(tagsScene, tagsTab);
 
         try {
 
@@ -56,6 +56,26 @@ public class ControllerMain implements Initializable {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+
+        // Ram Anzeige aktualisieren wenn sie angeklickt wird
+        ramProgress.setOnMouseClicked(event -> updateRam());
+        ramText.setOnMouseClicked(event -> updateRam());
+        updateRam();
+    }
+
+    private void updateRam() {
+        float max = Runtime.getRuntime().maxMemory() / 1048576;
+        float used = Runtime.getRuntime().totalMemory() / 1048576;
+
+        System.out.println(max + ", " + used + ", " + max / used / 100);
+
+        ramProgress.setProgress(max / used / 100);
+        ramText.setText((int) used + "/" + (int) max + "M");
+    }
+
+    private void bindProperties(SubScene scene, AnchorPane pane) {
+        scene.widthProperty().bind(pane.widthProperty());
+        scene.heightProperty().bind(pane.heightProperty());
     }
 
     @FXML
