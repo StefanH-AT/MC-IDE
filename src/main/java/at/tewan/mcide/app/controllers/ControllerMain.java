@@ -17,8 +17,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ControllerMain implements Initializable {
 
@@ -66,8 +64,6 @@ public class ControllerMain implements Initializable {
     private void updateRam() {
         float max = Runtime.getRuntime().maxMemory() / 1048576;
         float used = Runtime.getRuntime().totalMemory() / 1048576;
-
-        System.out.println(max + ", " + used + ", " + max / used / 100);
 
         ramProgress.setProgress(max / used / 100);
         ramText.setText((int) used + "/" + (int) max + "M");

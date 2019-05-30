@@ -4,13 +4,22 @@
     <list default="true" id="9ae7db90-2c1c-4d92-bf07-8ae12940b7f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/app/controllers/ControllerMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfunction/command/CommandNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfunction/command/CommandNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfunction/command/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/at/tewan/mcide/mcfunction/command/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/javafx/assets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/javafx/assets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/CompletionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/CompletionPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CommandNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CommandNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx/assets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx/assets.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -42,10 +51,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
+            <state relative-caret-position="247">
+              <caret line="127" selection-start-line="127" selection-end-line="127" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1296">
+              <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,31 +72,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/CompletionPane.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2632">
-              <caret line="175" column="44" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1354">
-              <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/theme.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="3120">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
             </state>
           </provider>
         </entry>
@@ -115,6 +112,7 @@
       <find>getChildren</find>
       <find>new</find>
       <find>new Command</find>
+      <find>openFile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -139,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerNewProjectDialog.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/ProjectBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/Resources.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/Icons.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StartParameterException.java" />
@@ -167,13 +164,14 @@
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/NumberNode.java" />
         <option value="$PROJECT_DIR$/src/main/resources/definitions/commands.json" />
         <option value="$PROJECT_DIR$/src/main/resources/syntax/mcfunction.css" />
-        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CoordinateNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CommandNode.java" />
         <option value="$PROJECT_DIR$/src/main/resources/syntax/mcfunction.json" />
         <option value="$PROJECT_DIR$/src/main/resources/javafx/theme.css" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controls/CompletionPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CommandNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java" />
       </list>
     </option>
   </component>
@@ -191,22 +189,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MC-IDE" type="58d84e3e:PackageViewProjectNode" />
-              <item name="MC-IDE" type="eaaa3913:PackageViewModuleGroupNode" />
-            </path>
-            <path>
-              <item name="MC-IDE" type="58d84e3e:PackageViewProjectNode" />
-              <item name="MC-IDE" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="MC-IDE.main" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,6 +258,25 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mcide" type="462c0819:PsiDirectoryNode" />
+              <item name="mcfiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MC-IDE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MC-IDE" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcide" type="462c0819:PsiDirectoryNode" />
+              <item name="mcfiles" type="462c0819:PsiDirectoryNode" />
+              <item name="recipe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MC-IDE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MC-IDE" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcide" type="462c0819:PsiDirectoryNode" />
               <item name="mcfunction" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -324,6 +325,22 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MC-IDE" type="58d84e3e:PackageViewProjectNode" />
+              <item name="MC-IDE" type="eaaa3913:PackageViewModuleGroupNode" />
+            </path>
+            <path>
+              <item name="MC-IDE" type="58d84e3e:PackageViewProjectNode" />
+              <item name="MC-IDE" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="MC-IDE.main" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,7 +405,9 @@
       <workItem from="1558614448072" duration="2719000" />
       <workItem from="1558961472359" duration="1254000" />
       <workItem from="1558962776539" duration="1373000" />
-      <workItem from="1558964204158" duration="1402000" />
+      <workItem from="1558964204158" duration="2989000" />
+      <workItem from="1558967778894" duration="622000" />
+      <workItem from="1559133696817" duration="555000" />
     </task>
     <task id="LOCAL-00001" summary="+ Startparameter">
       <created>1554800144915</created>
@@ -464,25 +483,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9193000" />
+    <option name="totallyTimeSpent" value="11957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.28954422" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.29758713" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="JProfiler" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50201344" side_tool="true" weight="0.21246459" />
       <window_info anchor="bottom" id="Build" order="2" weight="0.1923621" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3281471" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49798658" visible="true" weight="0.18811882" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49798658" weight="0.18811882" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.2592068" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -490,6 +507,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="JProfiler" order="14" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" id="Gradle" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -518,32 +536,6 @@
     <SUITE FILE_PATH="coverage/MC_IDE$MC_IDE.ic" NAME="MC-IDE Coverage Results" MODIFIED="1555621183329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerLootTables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/newproject.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117" />
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/factories/ListViewDragDrop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerNewRecipeDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -562,26 +554,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/recipes.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/project/ProjectBuilder.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-467">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerTags.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -631,17 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding>
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/util/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -650,12 +619,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/buildconfig.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/dialogs/Dialog.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -755,13 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -884,18 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CommandNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#941#942#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/syntax/mcfunction.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -920,27 +870,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/theme.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1354">
-          <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+        <state relative-caret-position="313">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/javafx/theme.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/Commands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="1920">
+          <caret line="89" column="20" lean-forward="true" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfunction/command/CommandNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding>
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#996#997#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
+        <state relative-caret-position="999">
+          <caret line="65" column="66" selection-start-line="65" selection-start-column="66" selection-end-line="65" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfiles/recipe/CraftingKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfiles/recipe/CraftingResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/mcfiles/recipe/Recipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerRecipes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowserNoDirectories.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/at/tewan/mcide/app/controllers/ControllerBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3120">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
         </state>
       </provider>
     </entry>

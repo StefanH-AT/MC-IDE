@@ -30,8 +30,6 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
     static final boolean DATAPACK = true;
     static final boolean RESOURCEPACK = false;
 
-    private String dir;
-
     @FXML
     private Accordion browser;
 
@@ -56,14 +54,22 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
             ListView list = new ListView();
 
             File dir = new File(rootDir + "/" + namespace + "/" + rootName);
-            System.out.println(dir.toString());
             for(File f : dir.listFiles()) {
                 list.getItems().add(f.getName());
             }
 
             pane.setText(namespace);
             pane.setContent(list);
+            list.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+                try {
+                    File f = new File(dir + "/" + newValue);
+                    System.out.println(f);
+                    openFile(f);
 
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }));
 
             browser.getPanes().add(pane);
         }

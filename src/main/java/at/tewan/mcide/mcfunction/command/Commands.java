@@ -102,40 +102,4 @@ public class Commands {
         return COMMANDS.keySet();
     }
 
-    /**
-     * @deprecated
-     */
-    public static CommandNode determineArgType(Syntax syntax, String arg) {
-        /*
-        System.out.println("Parsing '" + arg + "'");
-
-        CommandNode toReturn;
-
-        // Selector
-
-        SyntaxPattern pattern = syntax.getName(arg);
-        switch (pattern) {
-            case "selector":
-                toReturn = new SelectorNode(pattern, SelectorNode.SelectorType.valueOf(arg.charAt(1) + ""));
-            break;
-
-            case: "content":
-                toReturn = new ContentNode(pattern, );
-        }
-            toReturn = new JsonNode(arg);
-        } else if(arg.matches("\\w+:\\w+")) {
-            toReturn = new ContentNode(arg);
-        } else if(arg.matches("[0-9.]+")) {
-            toReturn = new NumberNode(Float.parseFloat(arg));
-        } else if(arg.matches("\\w+")) {
-            toReturn = new Command(arg);
-        } else {
-            toReturn = null;
-        }
-
-        System.out.println("Interpreted '" + arg + "' as " + toReturn.getClass().getSimpleName());
-
-        return toReturn; */
-        return null;
-    }
 }
