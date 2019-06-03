@@ -146,6 +146,12 @@ public class CompletionPane extends VBox {
                     currentArg = child;
                     break;
                 }
+
+                // Reference nodes
+                if(child instanceof ReferenceNode) {
+                    ReferenceNode ref = (ReferenceNode) child;
+                    break;
+                }
             }
 
             // Wenn Argument letztes Element ist, alle Children in die Liste schreiben

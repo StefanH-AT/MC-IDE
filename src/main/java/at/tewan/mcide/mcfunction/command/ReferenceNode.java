@@ -12,7 +12,8 @@ public class ReferenceNode extends CommandNode {
 
     ReferenceNode(SyntaxPattern syntaxPattern, String reference) {
         super(syntaxPattern);
-        //this.reference = reference;
+
+
     }
 
     @Override

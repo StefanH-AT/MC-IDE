@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.input.*?>
 <?import java.lang.*?>
@@ -166,4 +167,11 @@
          </children>
       </AnchorPane>
    </bottom>
+   <right>
+      <ImageView fitHeight="178.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
+         <image>
+            <Image url="@../img/peter.png" />
+         </image>
+      </ImageView>
+   </right>
 </BorderPane>
