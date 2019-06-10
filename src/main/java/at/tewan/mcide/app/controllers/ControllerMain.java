@@ -1,30 +1,28 @@
 package at.tewan.mcide.app.controllers;
 
-import at.tewan.mcide.Resources;
+import at.tewan.mcide.app.subapp.SubApplication;
 import at.tewan.mcide.app.dialogs.NewProjectDialog;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.settings.GlobalSettings;
 import at.tewan.mcide.filters.ExtensionFilters;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.SubScene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TabPane;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
+
+import org.reflections.Reflections;
 
 public class ControllerMain implements Initializable {
 
     @FXML
-    private SubScene assetsScene, functionScene, recipesScene, advancementsScene, loottablesScene, tagsScene;
-
-    @FXML
-    private AnchorPane assetsTab, functionTab, recipesTab, advancementsTab, loottablesTab, tagsTab;
+    private TabPane subTabs;
 
     @FXML
     private Label ramText;
@@ -35,30 +33,41 @@ public class ControllerMain implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        bindProperties(assetsScene, assetsTab);
-        bindProperties(functionScene, functionTab);
-        bindProperties(recipesScene, recipesTab);
-        bindProperties(advancementsScene, advancementsTab);
-        bindProperties(loottablesScene, loottablesTab);
-        bindProperties(tagsScene, tagsTab);
-
-        try {
-
-            assetsScene.setRoot(Resources.getFXML("assets"));
-            functionScene.setRoot(Resources.getFXML("functions"));
-            recipesScene.setRoot(Resources.getFXML("recipes"));
-            advancementsScene.setRoot(Resources.getFXML("advancements"));
-            loottablesScene.setRoot(Resources.getFXML("loottables"));
-            tagsScene.setRoot(Resources.getFXML("tags"));
-
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        registerSubApplications();
 
         // Ram Anzeige aktualisieren wenn sie angeklickt wird
         ramProgress.setOnMouseClicked(event -> updateRam());
         ramText.setOnMouseClicked(event -> updateRam());
         updateRam();
+    }
+
+    /**
+     * Schulklassen, welche mit UnterAnwendung angemerkt wurden werden durch die
+     * Spiegelung Bücherei erstellt. :)
+     *
+     * (Klassen die mit @SubApp annotated wurden, werden über Reflection erstellt)
+     * */
+    private void registerSubApplications() {
+
+        Reflections reflections = new Reflections();
+        Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(SubApplication.SubApp.class);
+
+
+        // Durch alle Subapps gehen
+        for(Class<?> c : annotated) {
+
+            // Neue Instanz der SubApp ersellen
+            try {
+                SubApplication obj = (SubApplication) c.newInstance();
+                subTabs.getTabs().add(obj.getTab());
+
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
     }
 
     private void updateRam() {
@@ -67,11 +76,6 @@ public class ControllerMain implements Initializable {
 
         ramProgress.setProgress(max / used / 100);
         ramText.setText((int) used + "/" + (int) max + "M");
-    }
-
-    private void bindProperties(SubScene scene, AnchorPane pane) {
-        scene.widthProperty().bind(pane.widthProperty());
-        scene.heightProperty().bind(pane.heightProperty());
     }
 
     @FXML
@@ -86,7 +90,7 @@ public class ControllerMain implements Initializable {
         ch.getExtensionFilters().add(ExtensionFilters.PROJECT_CFG);
         ch.setInitialDirectory(new File(GlobalSettings.getSettings().getMcDir() + "/ide"));
 
-        Project.load(ch.showOpenDialog(assetsScene.getScene().getWindow()).toString());
+        Project.load(ch.showOpenDialog(subTabs.getScene().getWindow()).toString());
     }
 
     @FXML

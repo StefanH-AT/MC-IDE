@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerMain">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.tewan.mcide.app.controllers.ControllerMain">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -65,88 +65,7 @@
       </MenuBar>
    </top>
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="Assets">
-               <content>
-                  <AnchorPane fx:id="assetsTab">
-                     <children>
-                        <SubScene fx:id="assetsScene" height="200.0" width="200.0">
-                          <root>
-                            <Region />
-                          </root>
-                        </SubScene>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-          <Tab text="Functions">
-               <content>
-                  <AnchorPane fx:id="functionTab">
-                     <children>
-                        <SubScene fx:id="functionScene" height="200.0" width="200.0">
-                          <root>
-                            <Region />
-                          </root>
-                        </SubScene>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Recipes">
-               <content>
-                  <AnchorPane fx:id="recipesTab">
-                     <children>
-                        <SubScene fx:id="recipesScene" height="200.0" width="200.0">
-                          <root>
-                            <Region />
-                          </root>
-                        </SubScene>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Advancements">
-               <content>
-                  <AnchorPane fx:id="advancementsTab">
-                     <children>
-                        <SubScene fx:id="advancementsScene" height="200.0" width="200.0">
-                          <root>
-                            <Region />
-                          </root>
-                        </SubScene>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Loottables">
-               <content>
-                  <AnchorPane fx:id="loottablesTab">
-                     <children>
-                        <SubScene fx:id="loottablesScene" height="200.0" width="200.0">
-                          <root>
-                            <Region />
-                          </root>
-                        </SubScene>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Tags">
-              <content>
-                <AnchorPane fx:id="tagsTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SubScene fx:id="tagsScene" height="200.0" width="200.0">
-                          <root>
-                            <Region />
-                          </root>
-                        </SubScene>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
+      <TabPane fx:id="subTabs" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <AnchorPane prefHeight="40.0" styleClass="statusbar" BorderPane.alignment="CENTER">
@@ -167,11 +86,4 @@
          </children>
       </AnchorPane>
    </bottom>
-   <right>
-      <ImageView fitHeight="178.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
-         <image>
-            <Image url="@../img/peter.png" />
-         </image>
-      </ImageView>
-   </right>
 </BorderPane>

@@ -102,11 +102,11 @@ public abstract class ControllerBrowser implements Initializable {
                         namespaces[browserRoot.getChildren().indexOf(namespace)] + "/" +
                         directories.get(i));
 
-                for(File f : Util.getSubDirectories(path, new ArrayList<>())) {
+                for(File f : Util.getFilesOfDirectory(path, new ArrayList<>())) {
                     String filePath = f.toString();
                     String cutPath = filePath.replace(path.toString(), "").substring(1);
 
-                    TreeItem<String> leaf = new TreeItem<String>(cutPath, Icons.getIcon("mcfunction"));
+                    TreeItem<String> leaf = new TreeItem<String>(cutPath, Icons.getIcon("file"));
 
                     fileMap.put(leaf, f);
 
@@ -139,7 +139,7 @@ public abstract class ControllerBrowser implements Initializable {
     }
 
     private static TreeItem<String> getTreeRootWithNamespaces(String rootName) {
-        TreeItem root = new TreeItem(rootName);
+        TreeItem<String> root = new TreeItem<>(rootName);
         root.getChildren().addAll(getNamespaceTreeItems());
 
         root.setExpanded(true);

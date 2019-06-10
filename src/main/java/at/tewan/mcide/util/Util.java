@@ -12,11 +12,11 @@ public class Util {
      * Durchsucht rekursiv ein Verzeichnis und fügt alle Dateien einer liste zu.
      * (Einfach eine leere neue ArrayList übergeben)
      */
-    public static ArrayList<File> getSubDirectories(File rootDir, ArrayList<File> list) {
+    public static ArrayList<File> getFilesOfDirectory(File rootDir, ArrayList<File> list) {
 
         for(File f : rootDir.listFiles()) {
             if(f.isDirectory()) {
-                getSubDirectories(f, list);
+                getFilesOfDirectory(f, list);
             } else if(f.isFile()) {
                 list.add(f);
             }

@@ -30,7 +30,7 @@ public class CompletionPane extends VBox {
         setMaxHeight(160);
 
         setId("completion-pane");
-        getStylesheets().add("javafx/theme.css");
+        getStylesheets().add("javafx/default.css");
         hide();
 
         // Inhalt bauen

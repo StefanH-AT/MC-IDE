@@ -36,6 +36,7 @@ public class GlobalSettings {
         } else {
             settings = new Settings();
             settings.setMcDir(defaultMcDir);
+            settings.setTheme("dark");
 
             saveConfig();
         }
