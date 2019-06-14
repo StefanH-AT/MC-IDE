@@ -1,5 +1,6 @@
 package at.tewan.mcide.app.subapp;
 
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.SubScene;
 import javafx.scene.control.Tab;

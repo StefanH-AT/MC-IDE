@@ -3,19 +3,19 @@ package at.tewan.mcide.app.subapp;
 import at.tewan.mcide.app.controls.BrowserTab;
 import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.enums.PackType;
-import at.tewan.mcide.mcfunction.Syntax;
 import at.tewan.mcide.project.Project;
 import javafx.geometry.Orientation;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TabPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
 
 import static at.tewan.mcide.enums.PackType.*;
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public abstract class BrowserApplication extends SubApplication {
 
@@ -61,6 +61,11 @@ public abstract class BrowserApplication extends SubApplication {
         // SplitPane hinzufügen
         getRoot().getChildren().add(splitPane);
 
+        getRoot().addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if(event.getCode() == KeyCode.F5) {
+                refresh();
+            }
+        });
 
 
         refresh();

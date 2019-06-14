@@ -5,10 +5,7 @@ import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.util.Icons;
 import javafx.scene.Node;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TreeCell;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 
 import java.io.File;
 
@@ -34,13 +31,14 @@ public class BrowserTab extends Tab {
         setText(namespace);
         setClosable(false);
 
-
         // Das alles brauch ich um ein Click Event vom TreeItem abzufangen...
         treeView.setCellFactory(tree -> {
             BrowserCell cell = new BrowserCell();
             cell.setOnMouseClicked(event -> {
-                if(cell.getTreeItem() instanceof BrowserFileItem)
-                    app.openFile(((BrowserFileItem) cell.getTreeItem()).getFile());
+                if(!event.isSecondaryButtonDown()) {
+                    if (cell.getTreeItem() instanceof BrowserFileItem)
+                        app.openFile(((BrowserFileItem) cell.getTreeItem()).getFile());
+                }
             });
 
             return cell;
@@ -59,6 +57,11 @@ public class BrowserTab extends Tab {
     }
 
     public void refresh(String rootDir) {
+
+        // Alten Baum löschen bevor man einen neuen erstellt
+        treeRoot.getChildren().clear();
+
+
         refresh(new File(rootDir + namespace + "/" + config.getSearchedFolder() + "/"), treeRoot);
     }
 
@@ -67,7 +70,7 @@ public class BrowserTab extends Tab {
      * Jeder mag Rekursionen.
      * @param currentDir Wird für die Rekursion benötigt
      */
-    public void refresh(File currentDir, TreeItem<String> currentItem) {
+    private void refresh(File currentDir, TreeItem<String> currentItem) {
 
         // Jetziges Directory hinzufügen
         TreeItem<String> currentDirItem = new TreeItem(currentDir.getName());
@@ -87,11 +90,23 @@ public class BrowserTab extends Tab {
 
     }
 
+    //////////////////////////////////////////////
+    //                                          //
+    //             GETTER & SETTER              //
+    //                                          //
+    //////////////////////////////////////////////
+
     public TreeView getTreeView() {
         return treeView;
     }
 
-    private class BrowserFileItem extends TreeItem<String> {
+    //////////////////////////////////////////////
+    //                                          //
+    //               INNER CASSES               //
+    //                                          //
+    //////////////////////////////////////////////
+
+    public class BrowserFileItem extends TreeItem<String> {
 
         private File file;
 
@@ -120,6 +135,61 @@ public class BrowserTab extends Tab {
                 setText(null);
             else
                 setText(item);
+
+            ContextMenu menu = new ContextMenu();
+
+            MenuItem itemDelete = new MenuItem("Delete");
+            MenuItem itemRename = new MenuItem("Rename");
+
+            itemDelete.setOnAction(event -> delete());
+            itemRename.setOnAction(event -> rename());
+
+            menu.getItems().addAll(itemDelete, itemRename);
+
+            if(getTreeItem() instanceof BrowserFileItem) {
+
+            } else {
+                Menu itemNew = new Menu("New");
+                MenuItem itemNewFolder = new MenuItem("Folder");
+
+                // TODO: Filetypes wie .mcfunction .json erstellen können
+                MenuItem itemNewFile = new MenuItem("File");
+
+                itemNewFolder.setOnAction(event -> newFolder());
+                itemNewFile.setOnAction(event -> newFile());
+
+                itemNew.getItems().addAll(itemNewFolder, itemNewFile);
+                menu.getItems().addAll(itemNew);
+
+            }
+
+            setContextMenu(menu);
+
+
         }
+
+        private void delete() {
+
+        }
+
+        private void rename() {
+            TextInputDialog renameDialog = new TextInputDialog();
+            renameDialog.setTitle("Rename");
+            renameDialog.getEditor().setPromptText("New file name");
+
+            String input = renameDialog.showAndWait().get();
+            if(!input.isEmpty()) {
+
+            }
+        }
+
+        private void newFolder() {
+
+        }
+
+        private void newFile() {
+
+        }
+
     }
 }

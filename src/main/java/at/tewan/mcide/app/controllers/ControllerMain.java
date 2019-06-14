@@ -5,11 +5,11 @@ import at.tewan.mcide.app.dialogs.NewProjectDialog;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.settings.GlobalSettings;
 import at.tewan.mcide.filters.ExtensionFilters;
+import at.tewan.mcide.util.Themes;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -29,6 +29,8 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private ProgressBar ramProgress;
+
+    private SubApplication[] subApplications;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,6 +54,7 @@ public class ControllerMain implements Initializable {
         Reflections reflections = new Reflections();
         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(SubApplication.SubApp.class);
 
+        subApplications = new SubApplication[annotated.size()];
 
         // Durch alle Subapps gehen
         for(Class<?> c : annotated) {
@@ -59,6 +62,12 @@ public class ControllerMain implements Initializable {
             // Neue Instanz der SubApp ersellen
             try {
                 SubApplication obj = (SubApplication) c.newInstance();
+
+                // SubApp zum Array hinzufügen
+                for(int i = 0; i < subApplications.length; i++)
+                    if(subApplications[i] == null)
+                        subApplications[i] = obj;
+
                 subTabs.getTabs().add(obj.getTab());
 
             } catch (InstantiationException | IllegalAccessException e) {
@@ -78,6 +87,18 @@ public class ControllerMain implements Initializable {
         ramText.setText((int) used + "/" + (int) max + "M");
     }
 
+    /**
+     *
+     * @return Die aktive SubApplication; null wenn keine offen ist (Was nicht möglich ist aber egal Java will dass ich irgendwas zurückgebe also mach ich das auch okay beschuldige nicht mich :'( )
+     */
+    private SubApplication getActiveSubApp() {
+        //return null; // TODO: Den scheiß coden
+        for(SubApplication subApplication : subApplications)
+            if(subApplication.getTab().isSelected())
+                return subApplication;
+        return null;
+    }
+    /*
     @FXML
     private void newproject() {
         new NewProjectDialog().show();
@@ -92,16 +113,7 @@ public class ControllerMain implements Initializable {
 
         Project.load(ch.showOpenDialog(subTabs.getScene().getWindow()).toString());
     }
-
-    @FXML
-    private void saveproject() {
-        Project.save();
-    }
-
-    @FXML
-    private void closeproject() {
-
-    }
+    */
 
     @FXML
     private void projectsettings() {
@@ -135,6 +147,15 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private void exit() {
-        System.exit(-1);
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.getDialogPane().getStylesheets().addAll(Themes.DEFAULT, Themes.getCurrentTheme());
+        confirmAlert.setTitle("Are you sure you want to close this project?");
+        confirmAlert.setContentText("All unsaved actions will be lost");
+
+        ButtonType response = confirmAlert.showAndWait().get();
+
+        if(response.getButtonData().isDefaultButton()) {
+            Platform.exit();
+        }
     }
 }

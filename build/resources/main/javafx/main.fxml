@@ -15,19 +15,6 @@
         <menus>
           <Menu mnemonicParsing="false" text="Project">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#newproject" text="New" />
-                  <MenuItem mnemonicParsing="false" onAction="#openproject" text="Open">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#saveproject" text="Save">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#closeproject" text="Close" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#projectsettings" text="Project Settings">
                      <accelerator>
                         <KeyCodeCombination alt="DOWN" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />

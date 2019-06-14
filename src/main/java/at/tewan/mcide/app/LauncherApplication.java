@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class LauncherApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.stage = primaryStage;
 
-        VBox root = new VBox();
+        GridPane root = new GridPane();
         Label recentProjectsLabel = new Label("Recent Projects");
         ListView<String> recentProjects = new ListView<>();
         Button openProject = new Button("Open Project");
@@ -44,8 +45,13 @@ public class LauncherApplication extends Application {
         recentProjects.getItems().add("TODO: K\u00FCrzliche Projekte auch anzeigen");
 
         root.setPadding(new Insets(20));
+        root.setVgap(5);
         root.getStylesheets().addAll(Themes.DEFAULT, Themes.getCurrentTheme());
-        root.getChildren().addAll(recentProjectsLabel, recentProjects, openProject, newProject);
+        root.addRow(0, recentProjectsLabel);
+        root.addRow(1, recentProjects);
+        root.addRow(2, openProject);
+        root.addRow(3, newProject);
+
 
         primaryStage.setTitle("MC-IDE Launcher");
         primaryStage.getIcons().add(new Image(Resources.getResource("img/icon.png"))); // TODO: Refactor Icon Zeug
@@ -77,6 +83,7 @@ public class LauncherApplication extends Application {
 
     private EventHandler<ActionEvent> newProjectHandler = event -> {
         NewProjectDialog newProjectDialog = new NewProjectDialog();
+        newProjectDialog.show();
     };
 
 }

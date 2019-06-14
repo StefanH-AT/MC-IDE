@@ -58,7 +58,7 @@ public class AppFunctions extends BrowserApplication {
 
     @Override
     public void save() {
-
+        System.out.println("Speichern");
     }
 
     @Override

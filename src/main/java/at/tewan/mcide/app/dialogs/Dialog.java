@@ -1,6 +1,7 @@
 package at.tewan.mcide.app.dialogs;
 
 import at.tewan.mcide.Resources;
+import at.tewan.mcide.util.Themes;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -19,6 +20,7 @@ public abstract class Dialog {
 
         try {
             scene = new Scene(Resources.getFXML(fxmlName));
+            scene.getStylesheets().addAll(Themes.DEFAULT, Themes.getCurrentTheme());
         } catch (IOException exception) {
             exception.printStackTrace();
         }

@@ -46,7 +46,7 @@
     -fx-fill: -fx-color-text;
 }
 
-.choice-box .context-menu {
+.context-menu {
     -fx-background-color: -fx-color-background;
 }
 
@@ -116,10 +116,14 @@
     -fx-border-color: #363636 #363636 -fx-color-widget #363636;
     -fx-focus-color: invisible;
     -fx-padding: 1 25 3 25;
- }
+}
 
 .tab-pane .tab:selected {
     -fx-background-color: -fx-color-highlight;
+}
+
+.tab-pane .tab-close-button {
+    -fx-background-color: -fx-color-text;
 }
 
 .split-pane:top > .split-pane-divider {
