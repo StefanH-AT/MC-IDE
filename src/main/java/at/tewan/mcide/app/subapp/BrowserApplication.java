@@ -95,7 +95,6 @@ public abstract class BrowserApplication extends SubApplication {
 
     public abstract void openFile(File file);
 
-
     //////////////////////////////////////////////
     //                                          //
     //             GETTER & SETTER              //

@@ -1,6 +1,7 @@
 package at.tewan.mcide.app.controls;
 
 import at.tewan.mcide.mcfunction.command.*;
+import at.tewan.mcide.util.Themes;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
 import javafx.scene.control.ListView;
@@ -30,7 +31,7 @@ public class CompletionPane extends VBox {
         setMaxHeight(160);
 
         setId("completion-pane");
-        getStylesheets().add("javafx/default.css");
+        getStylesheets().add(Themes.DEFAULT);
         hide();
 
         // Inhalt bauen
