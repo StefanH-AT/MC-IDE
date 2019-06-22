@@ -23,7 +23,6 @@ public class AppFunctions extends BrowserApplication {
         super("Functions", PackType.DATAPACK, "functions");
 
         codeTabs = new TabPane();
-        setArea(codeTabs);
 
 
 
@@ -31,7 +30,7 @@ public class AppFunctions extends BrowserApplication {
         syntax = new Gson().fromJson(new InputStreamReader(Resources.getResource("syntax/mcfunction.json")), Syntax.class);
     }
 
-
+    /*
     @Override
     public void openFile(File file) {
 
@@ -56,6 +55,8 @@ public class AppFunctions extends BrowserApplication {
         codeTabs.getTabs().add(new CodeTab(codeTabs, file, syntax));
     }
 
+
+     */
     @Override
     public void save() {
         System.out.println("Speichern");

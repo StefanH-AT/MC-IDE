@@ -37,7 +37,7 @@ public class BrowserTab extends Tab {
             cell.setOnMouseClicked(event -> {
                 if(!event.isSecondaryButtonDown()) {
                     if (cell.getTreeItem() instanceof BrowserFileItem)
-                        app.openFile(((BrowserFileItem) cell.getTreeItem()).getFile());
+                        app.openFile(((BrowserFileItem) cell.getTreeItem()).getFile().toString());
                 }
             });
 

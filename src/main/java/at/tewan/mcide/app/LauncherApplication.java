@@ -35,7 +35,7 @@ public class LauncherApplication extends Application {
         Label recentProjectsLabel = new Label("Recent Projects");
         ListView<String> recentProjects = new ListView<>();
         Button openProject = new Button("Open Project");
-        Button newProject = new Button("New Project (Funktioniert noch nicht)");
+        Button newProject = new Button("New Project");
 
         openProject.setMaxWidth(Long.MAX_VALUE);
         openProject.setOnAction(openProjectHandler);

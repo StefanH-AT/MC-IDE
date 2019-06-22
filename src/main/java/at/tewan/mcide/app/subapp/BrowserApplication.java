@@ -4,16 +4,20 @@ import at.tewan.mcide.app.controls.BrowserTab;
 import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.enums.PackType;
 import at.tewan.mcide.project.Project;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.MapChangeListener;
+import javafx.collections.ObservableMap;
 import javafx.geometry.Orientation;
 import javafx.geometry.Side;
-import javafx.scene.Parent;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
+import java.util.HashMap;
 
 import static at.tewan.mcide.enums.PackType.*;
 
@@ -21,14 +25,14 @@ public abstract class BrowserApplication extends SubApplication {
 
     private BrowserConfig config;
 
+    private SplitPane splitPane;
 
 
     private TabPane namespaceTabPane;
+    private BrowserTab[] namespaceTabs; // Ist ein Normales Array, weil die Anzahl der Namespaces sich nicht während der Laufzeit ändert.
 
-    private BrowserTab[] tabs;
-
-    private SplitPane splitPane;
-    private Parent area;
+    private TabPane fileTabPane;
+    private ObservableMap<String, Tab> openFiles;
 
     public BrowserApplication(String displayName, PackType packType, String folder) {
         this(displayName, new BrowserConfig(packType, folder));
@@ -37,8 +41,7 @@ public abstract class BrowserApplication extends SubApplication {
     public BrowserApplication(String displayName, BrowserConfig config) {
         super(displayName);
         this.config = config;
-
-        area = new AnchorPane();
+        this.openFiles = FXCollections.observableHashMap();
 
         // SplitPane
         splitPane = new SplitPane();
@@ -46,17 +49,49 @@ public abstract class BrowserApplication extends SubApplication {
         splitPane.prefWidthProperty().bind(getRoot().widthProperty());
         splitPane.prefHeightProperty().bind(getRoot().heightProperty());
 
+
+        // Namespace Tab Pane
         namespaceTabPane = new TabPane();
         namespaceTabPane.setSide(Side.BOTTOM);
+        namespaceTabPane.setMinWidth(200);
         namespaceTabPane.setMaxWidth(400);
         namespaceTabPane.prefHeightProperty().bind(splitPane.heightProperty());
         namespaceTabPane.getStyleClass().add("browser-namespaces");
 
-        tabs = BrowserTab.getBrowserTabsForAllNamespaces(this);
-        namespaceTabPane.getTabs().addAll(tabs);
+        namespaceTabs = BrowserTab.getBrowserTabsForAllNamespaces(this);
+        namespaceTabPane.getTabs().addAll(namespaceTabs);
+
+        // File Tab Pane
+        fileTabPane = new TabPane();
+        fileTabPane.setSide(Side.TOP);
+        fileTabPane.setMaxWidth(Double.MAX_VALUE);
+        fileTabPane.prefHeightProperty().bind(splitPane.heightProperty());
+
+        fileTabPane.getTabs().addListener((ListChangeListener<Tab>) change -> {
+
+            while(change.next())
+                if(change.wasRemoved()) {
+                    System.out.println(change.getRemoved());
+                    openFiles.values().removeAll(change.getRemoved());
+                    System.out.println(openFiles.size());
+                }
+
+        });
+
+        openFiles.addListener((MapChangeListener<String, Tab>) change -> {
+
+            if(change.wasAdded()) {
+                System.out.println("-> " +change.getKey());
+                fileTabPane.getTabs().add(change.getValueAdded());
+            } else {
+                System.out.println("<- " +change.getKey());
+                fileTabPane.getTabs().remove(change.getValueRemoved());
+            }
+
+        });
 
         // Elemente zur SplitPane hinzufügen
-        splitPane.getItems().addAll(namespaceTabPane, area);
+        splitPane.getItems().addAll(namespaceTabPane, fileTabPane);
 
         // SplitPane hinzufügen
         getRoot().getChildren().add(splitPane);
@@ -81,7 +116,7 @@ public abstract class BrowserApplication extends SubApplication {
             rootDir = Project.getResourceDir();
         }
 
-        for(BrowserTab tab : tabs) {
+        for(BrowserTab tab : namespaceTabs) {
             tab.refresh(rootDir);
         }
 
@@ -89,11 +124,21 @@ public abstract class BrowserApplication extends SubApplication {
 
     //////////////////////////////////////////////
     //                                          //
-    //             ABSTRACT METHODS             //
+    //             FILE MANAGEMENT              //
     //                                          //
     //////////////////////////////////////////////
 
-    public abstract void openFile(File file);
+    public void openFile(String file) {
+
+        if(!openFiles.keySet().contains(file)) {
+            Tab newTab = new Tab();
+            newTab.setText(new File(file).getName());
+            openFiles.put(file, newTab);
+
+        } else {
+            System.out.println(file + " is already opened");
+        }
+    }
 
     //////////////////////////////////////////////
     //                                          //
@@ -101,18 +146,8 @@ public abstract class BrowserApplication extends SubApplication {
     //                                          //
     //////////////////////////////////////////////
 
-    public BrowserTab[] getTabs() {
-        return tabs;
-    }
-
-    @Override
-    protected Parent getArea() {
-        return area;
-    }
-
-    protected void setArea(Parent parent) {
-        this.area = parent;
-        splitPane.getItems().set(1, parent);
+    public BrowserTab[] getNamespaceTabs() {
+        return namespaceTabs;
     }
 
     public BrowserConfig getConfig() {
