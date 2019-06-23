@@ -4,10 +4,12 @@ import at.tewan.mcide.app.subapp.BrowserApplication;
 import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.util.Icons;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import java.io.File;
+import java.util.Optional;
 
 public class BrowserTab extends Tab {
 
@@ -147,7 +149,10 @@ public class BrowserTab extends Tab {
             menu.getItems().addAll(itemDelete, itemRename);
 
             if(getTreeItem() instanceof BrowserFileItem) {
+                MenuItem itemOpenInEditor = new MenuItem("Open in Notepad");
+                itemOpenInEditor.setOnAction(event -> openInSystemEditor());
 
+                menu.getItems().add(itemOpenInEditor);
             } else {
                 Menu itemNew = new Menu("New");
                 MenuItem itemNewFolder = new MenuItem("Folder");
@@ -168,6 +173,19 @@ public class BrowserTab extends Tab {
 
         }
 
+        private void openInSystemEditor() {
+
+            // Windows
+            if(System.getProperty("os.name").contains("windows")) {
+
+                // TODO: Datei im Editor öffnen
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle(":/");
+                alert.setContentText("Not yet implemented. If you really need this feature, ask me on GitHub.");
+                alert.show();
+            }
+        }
+
         private void delete() {
 
         }
@@ -177,9 +195,20 @@ public class BrowserTab extends Tab {
             renameDialog.setTitle("Rename");
             renameDialog.getEditor().setPromptText("New file name");
 
-            String input = renameDialog.showAndWait().get();
-            if(!input.isEmpty()) {
 
+            Optional<String> result = renameDialog.showAndWait();
+
+            if(result.isPresent()) {
+                String resultText = result.get();
+
+                if(!resultText.isEmpty()) {
+                    // TODO: Datei umbenennen einbauen
+                } else {
+                    Alert emptyStringAlert = new Alert(Alert.AlertType.WARNING);
+                    emptyStringAlert.setTitle("File name empty");
+                    emptyStringAlert.setContentText("File name must not be empty!");
+                    emptyStringAlert.show();
+                }
             }
         }
 

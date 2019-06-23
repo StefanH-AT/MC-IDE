@@ -38,9 +38,13 @@ public class LauncherApplication extends Application {
         Button newProject = new Button("New Project");
 
         openProject.setMaxWidth(Long.MAX_VALUE);
+        openProject.setPrefHeight(50);
         openProject.setOnAction(openProjectHandler);
+
         newProject.setMaxWidth(Long.MAX_VALUE);
+        newProject.setPrefHeight(50);
         newProject.setOnAction(newProjectHandler);
+
         recentProjects.setPrefSize(600, 400);
         recentProjects.getItems().add("TODO: K\u00FCrzliche Projekte auch anzeigen");
 

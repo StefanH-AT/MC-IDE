@@ -17,7 +17,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.File;
-import java.util.HashMap;
 
 import static at.tewan.mcide.enums.PackType.*;
 
@@ -48,6 +47,10 @@ public abstract class BrowserApplication extends SubApplication {
         splitPane.setOrientation(Orientation.HORIZONTAL);
         splitPane.prefWidthProperty().bind(getRoot().widthProperty());
         splitPane.prefHeightProperty().bind(getRoot().heightProperty());
+        splitPane.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if(event.isControlDown() && event.getCode() == KeyCode.S)
+                save();
+        });
 
 
         // Namespace Tab Pane
@@ -67,17 +70,14 @@ public abstract class BrowserApplication extends SubApplication {
         fileTabPane.setMaxWidth(Double.MAX_VALUE);
         fileTabPane.prefHeightProperty().bind(splitPane.heightProperty());
 
+        // Datei aus Map löschen, wenn ein Tab geschlossen wird
         fileTabPane.getTabs().addListener((ListChangeListener<Tab>) change -> {
-
             while(change.next())
-                if(change.wasRemoved()) {
-                    System.out.println(change.getRemoved());
+                if(change.wasRemoved())
                     openFiles.values().removeAll(change.getRemoved());
-                    System.out.println(openFiles.size());
-                }
-
         });
 
+        // Tabs aktualisieren wenn die Map geändert wird.
         openFiles.addListener((MapChangeListener<String, Tab>) change -> {
 
             if(change.wasAdded()) {
@@ -106,7 +106,7 @@ public abstract class BrowserApplication extends SubApplication {
         refresh();
     }
 
-    protected void refresh() {
+    private void refresh() {
 
         String rootDir = null;
 
@@ -139,6 +139,8 @@ public abstract class BrowserApplication extends SubApplication {
             System.out.println(file + " is already opened");
         }
     }
+
+    public abstract void save();
 
     //////////////////////////////////////////////
     //                                          //

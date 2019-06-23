@@ -1,16 +1,13 @@
 package at.tewan.mcide.app.subapps;
 
 import at.tewan.mcide.Resources;
-import at.tewan.mcide.app.controls.CodeTab;
 import at.tewan.mcide.app.subapp.BrowserApplication;
 import at.tewan.mcide.app.subapp.SubApplication.SubApp;
 import at.tewan.mcide.enums.PackType;
 import at.tewan.mcide.mcfunction.Syntax;
 import com.google.gson.Gson;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-import java.io.File;
 import java.io.InputStreamReader;
 
 @SubApp
