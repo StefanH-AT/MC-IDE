@@ -108,12 +108,12 @@ public abstract class BrowserApplication extends SubApplication {
 
     private void refresh() {
 
-        String rootDir = null;
+        File rootDir = null;
 
         if(getConfig().getSearchedPack() == DATAPACK) {
-            rootDir = Project.getDataDir();
+            rootDir = Project.getCurrentProjectDatapackDir();
         } else if(getConfig().getSearchedPack() == RESOURCEPACK) {
-            rootDir = Project.getResourceDir();
+            rootDir = Project.getCurrentProjectResourceDir();
         }
 
         for(BrowserTab tab : namespaceTabs) {

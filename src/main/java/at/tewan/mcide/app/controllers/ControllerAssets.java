@@ -6,7 +6,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerAssets extends ControllerBrowser {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+    }
+/*
 
     public ControllerAssets() {
         super("Assets",
@@ -25,6 +29,6 @@ public class ControllerAssets extends ControllerBrowser {
     protected void openFile(File file) throws IOException {
 
     }
-
+*/
 
 }

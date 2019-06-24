@@ -22,7 +22,7 @@ public class ControllerBuildConfigDialog implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String worldNameDirectory = Project.getCurrentProject().getWorldname();
+        String worldNameDirectory = Project.getCurrentProjectConfig().getWorldname();
 
         if(worldNameDirectory == null) {
             worldname.setText("<none>");

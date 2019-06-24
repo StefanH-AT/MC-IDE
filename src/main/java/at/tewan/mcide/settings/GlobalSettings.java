@@ -2,11 +2,13 @@ package at.tewan.mcide.settings;
 
 import at.tewan.mcide.settings.json.Settings;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Enthält globale Einsellungen für MC-IDE.
@@ -18,12 +20,14 @@ public class GlobalSettings {
     private static File settingsFile = new File(settingsFileName);
     private static Settings settings;
 
+    // TODO: Cross Platform-freundlich machen
     private static String defaultMcDir = "C:/Users/" + System.getProperty("user.name") + "/AppData/Roaming/.minecraft";
 
-    private static Gson gson;
+    // Voll pretty Printing :3  // Es tut mir leid warum schreib ich das ohjemine oh nein oh bite nicht es funktioniert nichtmal
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void loadConfig() {
-        gson = new Gson();
+
 
         if (settingsFile.exists()) {
 
@@ -37,6 +41,7 @@ public class GlobalSettings {
             settings = new Settings();
             settings.setMcDir(defaultMcDir);
             settings.setTheme("dark");
+            settings.setRecentProjects(new ArrayList<>());
 
             saveConfig();
         }

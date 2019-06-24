@@ -23,7 +23,7 @@ import java.util.*;
  *
  */
 public abstract class ControllerBrowser implements Initializable {
-
+/*
     static final boolean DATAPACK = true;
     static final boolean RESOURCEPACK = false;
 
@@ -73,10 +73,10 @@ public abstract class ControllerBrowser implements Initializable {
     @FXML
     private void refresh() {
 
-        if(packType == DATAPACK && Project.getProjectDir() != null) {
-            rootDir = Project.getDataDir();
+        if(packType == DATAPACK && Project.getCurrentProjectDir() != null) {
+            rootDir = Project.getCurrentProjectDatapackDir();
         } else {
-            rootDir = Project.getResourceDir();
+            rootDir = Project.getCurrentProjectResourceDir();
         }
 
         namespaces = Project.getNamespaces();
@@ -144,5 +144,5 @@ public abstract class ControllerBrowser implements Initializable {
 
         root.setExpanded(true);
         return root;
-    }
+    }*/
 }

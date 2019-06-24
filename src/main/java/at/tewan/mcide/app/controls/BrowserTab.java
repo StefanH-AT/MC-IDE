@@ -58,13 +58,15 @@ public class BrowserTab extends Tab {
         return tabs;
     }
 
-    public void refresh(String rootDir) {
+    public void refresh(File rootDir) {
 
         // Alten Baum löschen bevor man einen neuen erstellt
         treeRoot.getChildren().clear();
 
-
-        refresh(new File(rootDir + namespace + "/" + config.getSearchedFolder() + "/"), treeRoot);
+        // Rekursive refresh methode aufrufen
+        File refreshStartDirectory = new File(rootDir.toString() +  "/" + namespace + "/" + config.getSearchedFolder() + "/");
+        System.out.println("Refreshing contents of directory '" + refreshStartDirectory + "'");
+        refresh(refreshStartDirectory, treeRoot);
     }
 
     /**

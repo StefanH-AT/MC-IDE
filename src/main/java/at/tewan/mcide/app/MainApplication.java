@@ -11,13 +11,15 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
+
 
 public class MainApplication extends Application {
 
-    private String projectDirectory;
+    private File projectDirectory;
 
     public MainApplication(String path) throws Exception {
-        projectDirectory = path;
+        projectDirectory = new File(path);
         start(new Stage());
     }
 

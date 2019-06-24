@@ -24,7 +24,7 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
     }
 
     private String rootName;
-    private String rootDir;
+    private File rootDir;
     private boolean packType;
 
     static final boolean DATAPACK = true;
@@ -41,10 +41,10 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
     @FXML
     private void refresh() {
 
-        if(packType == DATAPACK && Project.getProjectDir() != null) {
-            rootDir = Project.getDataDir();
+        if(packType == DATAPACK && Project.getCurrentProject().getProjectRoot() != null) {
+            rootDir = Project.getCurrentProjectDatapackDir();
         } else {
-            rootDir = Project.getResourceDir();
+            rootDir = Project.getCurrentProjectResourceDir();
         }
 
         browser.getPanes().clear();
@@ -53,7 +53,7 @@ public abstract class ControllerBrowserNoDirectories implements Initializable {
             TitledPane pane = new TitledPane();
             ListView list = new ListView();
 
-            File dir = new File(rootDir + "/" + namespace + "/" + rootName);
+            File dir = new File(rootDir.toString() + "/" + namespace + "/" + rootName);
             for(File f : dir.listFiles()) {
                 list.getItems().add(f.getName());
             }

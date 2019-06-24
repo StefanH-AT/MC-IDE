@@ -19,7 +19,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerFunctions extends ControllerBrowser {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    /*
     @FXML
     private TabPane tabPane;
 
@@ -33,14 +38,8 @@ public class ControllerFunctions extends ControllerBrowser {
         Commands.init(syntax);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        super.initialize(location, resources);
-    }
-
     // Superklasse führt diese Methode aus, wenn im File Browser eine Datei aufgerufen wird.
     // Für den mcfunction editor soll die Datei im Code Editor in einem Tab geöffnet werden.
-    @Override
     protected void openFile(File file) throws IOException {
 
         // Für alle Tabs muss getestet werden, ob dieser bereits für die Datei zuständig ist,
@@ -70,7 +69,7 @@ public class ControllerFunctions extends ControllerBrowser {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("New file");
         chooser.getExtensionFilters().add(ExtensionFilters.MC_FUNCTION);
-        chooser.setInitialDirectory(new File(Project.getDataDir()));
+        chooser.setInitialDirectory(Project.getCurrentProjectDatapackDir());
         File newFile = chooser.showSaveDialog(tabPane.getScene().getWindow());
         try {
             FileWriter writer = new FileWriter(newFile);
@@ -82,5 +81,5 @@ public class ControllerFunctions extends ControllerBrowser {
 
         tabPane.getTabs().add(new CodeTab(tabPane, newFile, syntax));
     }
-
+*/
 }

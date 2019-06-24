@@ -37,7 +37,7 @@ public class Resources {
     /**
      * @return Den Pfad zum workspace Directory (Standard .minecraft/ide)
      * */
-    public static String getWorkspaceDir() {
-        return GlobalSettings.getSettings().getMcDir() + "/ide/";
+    public static File getWorkspaceDir() {
+        return new File(GlobalSettings.getSettings().getMcDir().concat("/ide/"));
     }
 }
