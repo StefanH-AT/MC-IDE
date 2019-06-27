@@ -10,6 +10,7 @@ import javafx.collections.MapChangeListener;
 import javafx.collections.ObservableMap;
 import javafx.geometry.Orientation;
 import javafx.geometry.Side;
+import javafx.scene.Cursor;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -81,10 +82,10 @@ public abstract class BrowserApplication extends SubApplication {
         openFiles.addListener((MapChangeListener<String, Tab>) change -> {
 
             if(change.wasAdded()) {
-                System.out.println("-> " +change.getKey());
+                System.out.println("-> " + change.getKey());
                 fileTabPane.getTabs().add(change.getValueAdded());
             } else {
-                System.out.println("<- " +change.getKey());
+                System.out.println("<- " + change.getKey());
                 fileTabPane.getTabs().remove(change.getValueRemoved());
             }
 
@@ -108,6 +109,9 @@ public abstract class BrowserApplication extends SubApplication {
 
     private void refresh() {
 
+        // Cursor Typ ändern um anzuzeigen, das refresht wird.
+        getScene().setCursor(Cursor.WAIT);
+
         File rootDir = null;
 
         if(getConfig().getSearchedPack() == DATAPACK) {
@@ -119,6 +123,8 @@ public abstract class BrowserApplication extends SubApplication {
         for(BrowserTab tab : namespaceTabs) {
             tab.refresh(rootDir);
         }
+
+        getScene().setCursor(Cursor.DEFAULT);
 
     }
 

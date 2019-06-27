@@ -68,6 +68,7 @@ public class ControllerMain implements Initializable {
                     if(subApplications[i] == null)
                         subApplications[i] = obj;
 
+                // SubApp zur main TabPane hinzufügen
                 subTabs.getTabs().add(obj.getTab());
 
             } catch (InstantiationException | IllegalAccessException e) {
