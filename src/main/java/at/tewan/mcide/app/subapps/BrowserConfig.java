@@ -4,18 +4,18 @@ import at.tewan.mcide.enums.PackType;
 
 public class BrowserConfig {
     private PackType searchedPack;
-    private String searchedFolder;
+    private String[] searchedFolders;
 
-    public BrowserConfig(PackType searchedPack, String searchedFolder) {
+    public BrowserConfig(PackType searchedPack, String[] searchedFolders) {
         this.searchedPack = searchedPack;
-        this.searchedFolder = searchedFolder;
+        this.searchedFolders = searchedFolders;
     }
 
     public PackType getSearchedPack() {
         return searchedPack;
     }
 
-    public String getSearchedFolder() {
-        return searchedFolder;
+    public String[] getSearchedFolders() {
+        return searchedFolders;
     }
 }

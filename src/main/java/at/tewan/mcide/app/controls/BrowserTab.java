@@ -3,8 +3,8 @@ package at.tewan.mcide.app.controls;
 import at.tewan.mcide.app.subapp.BrowserApplication;
 import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.project.Project;
+import at.tewan.mcide.util.FileUtil;
 import at.tewan.mcide.util.Icons;
-import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 
@@ -64,9 +64,13 @@ public class BrowserTab extends Tab {
         treeRoot.getChildren().clear();
 
         // Rekursive refresh methode aufrufen
-        File refreshStartDirectory = new File(rootDir.toString() +  "/" + namespace + "/" + config.getSearchedFolder() + "/");
-        System.out.println("Refreshing contents of directory '" + refreshStartDirectory + "'");
-        refresh(refreshStartDirectory, treeRoot);
+        for(String searchFolder : config.getSearchedFolders()) {
+            addDirectoryItemsToTree(
+                    FileUtil.constructDirectory(rootDir.toString(), namespace, searchFolder),
+                    treeRoot);
+
+            System.out.println("Refreshed contents of directory '" + searchFolder + "'");
+        }
     }
 
     /**
@@ -74,17 +78,17 @@ public class BrowserTab extends Tab {
      * Jeder mag Rekursionen.
      * @param currentDir Wird für die Rekursion benötigt
      */
-    private void refresh(File currentDir, TreeItem<String> currentItem) {
+    private void addDirectoryItemsToTree(File currentDir, TreeItem<String> currentItem) {
 
         // Jetziges Directory hinzufügen
-        TreeItem<String> currentDirItem = new TreeItem(currentDir.getName());
+        TreeItem<String> currentDirItem = new TreeItem<>(currentDir.getName());
         currentDirItem.setExpanded(true);
         currentItem.getChildren().add(currentDirItem);
 
         for(File currentFile : currentDir.listFiles()) {
 
             if(currentFile.isDirectory()) {
-                refresh(currentFile, currentDirItem);
+                addDirectoryItemsToTree(currentFile, currentDirItem);
             } else if(currentFile.isFile()){
                 BrowserFileItem item = new BrowserFileItem(currentFile.getName(), Icons.getIcon("file"));
                 item.setFile(currentFile);

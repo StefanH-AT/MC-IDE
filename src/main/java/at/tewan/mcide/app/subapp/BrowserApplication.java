@@ -34,8 +34,8 @@ public abstract class BrowserApplication extends SubApplication {
     private TabPane fileTabPane;
     private ObservableMap<String, Tab> openFiles;
 
-    public BrowserApplication(String displayName, PackType packType, String folder) {
-        this(displayName, new BrowserConfig(packType, folder));
+    public BrowserApplication(String displayName, PackType packType, String... folders) {
+        this(displayName, new BrowserConfig(packType, folders));
     }
 
     public BrowserApplication(String displayName, BrowserConfig config) {
@@ -110,7 +110,7 @@ public abstract class BrowserApplication extends SubApplication {
     private void refresh() {
 
         // Cursor Typ ändern um anzuzeigen, das refresht wird.
-        getScene().setCursor(Cursor.WAIT);
+        //getScene().setCursor(Cursor.WAIT); // TODO: Fixen lol
 
         File rootDir = null;
 
@@ -124,7 +124,7 @@ public abstract class BrowserApplication extends SubApplication {
             tab.refresh(rootDir);
         }
 
-        getScene().setCursor(Cursor.DEFAULT);
+        //getScene().setCursor(Cursor.DEFAULT);
 
     }
 

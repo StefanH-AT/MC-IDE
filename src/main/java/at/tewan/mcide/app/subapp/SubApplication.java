@@ -43,7 +43,7 @@ public abstract class SubApplication {
     }
 
     public Scene getScene() {
-        return tab.getTabPane().getScene();
+        return tab.getTabPane().getScene(); // TODO: Returnt aus irgendeinem Grund null
     }
 
     protected void setDisplayName(String name) {
