@@ -21,7 +21,7 @@ public class GlobalSettings {
     private static Settings settings;
 
     // TODO: Cross Platform-freundlich machen
-    private static String defaultMcDir = "C:/Users/" + System.getProperty("user.name") + "/AppData/Roaming/.minecraft";
+    private static String defaultMcDir = System.getProperty("user.dir") + "AppData/Roaming/.minecraft";
 
     // Voll pretty Printing :3  // Es tut mir leid warum schreib ich das ohjemine oh nein oh bite nicht es funktioniert nichtmal
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();

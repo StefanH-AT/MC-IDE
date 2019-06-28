@@ -16,17 +16,17 @@ import java.io.File;
 
 public class MainApplication extends Application {
 
-    private File projectDirectory;
+    private File projectConfigFile;
 
-    public MainApplication(String path) throws Exception {
-        projectDirectory = new File(path);
+    public MainApplication(File path) throws Exception {
+        projectConfigFile = path;
         start(new Stage());
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Project.load(projectDirectory);
+        Project.load(projectConfigFile);
 
         primaryStage.setMaximized(true);
         primaryStage.setTitle("MC-IDE");

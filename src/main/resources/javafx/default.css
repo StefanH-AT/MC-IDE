@@ -202,3 +202,8 @@
 .recent-projects-title {
     -fx-font-size: 20px;
 }
+
+.tips-box {
+    -fx-border-color: -fx-color-border;
+    -fx-border-width: 2;
+}

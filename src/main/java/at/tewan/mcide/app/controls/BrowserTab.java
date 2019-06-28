@@ -4,7 +4,7 @@ import at.tewan.mcide.app.subapp.BrowserApplication;
 import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.util.FileUtil;
-import at.tewan.mcide.util.Icons;
+import at.tewan.mcide.util.ImageUtil;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 
@@ -37,7 +37,7 @@ public class BrowserTab extends Tab {
         treeView.setCellFactory(tree -> {
             BrowserCell cell = new BrowserCell();
             cell.setOnMouseClicked(event -> {
-                if(!event.isSecondaryButtonDown()) {
+                if(event.getClickCount() == 2) {
                     if (cell.getTreeItem() instanceof BrowserFileItem)
                         app.openFile(((BrowserFileItem) cell.getTreeItem()).getFile().toString());
                 }
@@ -90,7 +90,7 @@ public class BrowserTab extends Tab {
             if(currentFile.isDirectory()) {
                 addDirectoryItemsToTree(currentFile, currentDirItem);
             } else if(currentFile.isFile()){
-                BrowserFileItem item = new BrowserFileItem(currentFile.getName(), Icons.getIcon("file"));
+                BrowserFileItem item = new BrowserFileItem(currentFile.getName(), ImageUtil.getIcon("file"));
                 item.setFile(currentFile);
                 currentDirItem.getChildren().add(item);
             }

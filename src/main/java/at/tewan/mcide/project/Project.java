@@ -177,7 +177,7 @@ public class Project {
         currentProject = project;
 
         ArrayList<String> recentProjects = GlobalSettings.getSettings().getRecentProjects();
-        if(!recentProjects.contains(configFile)) {
+        if(!recentProjects.contains(configFile.toString())) {
             recentProjects.add(configFile.toString());
             GlobalSettings.saveConfig();
         }

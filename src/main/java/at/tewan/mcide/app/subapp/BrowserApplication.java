@@ -11,6 +11,7 @@ import javafx.collections.ObservableMap;
 import javafx.geometry.Orientation;
 import javafx.geometry.Side;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -18,6 +19,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 
 import static at.tewan.mcide.enums.PackType.*;
 
@@ -71,11 +73,13 @@ public abstract class BrowserApplication extends SubApplication {
         fileTabPane.setMaxWidth(Double.MAX_VALUE);
         fileTabPane.prefHeightProperty().bind(splitPane.heightProperty());
 
-        // Datei aus Map löschen, wenn ein Tab geschlossen wird
+
         fileTabPane.getTabs().addListener((ListChangeListener<Tab>) change -> {
             while(change.next())
                 if(change.wasRemoved())
+                    // Datei aus Map löschen, wenn ein Tab geschlossen wird
                     openFiles.values().removeAll(change.getRemoved());
+
         });
 
         // Tabs aktualisieren wenn die Map geändert wird.
@@ -139,6 +143,14 @@ public abstract class BrowserApplication extends SubApplication {
         if(!openFiles.keySet().contains(file)) {
             Tab newTab = new Tab();
             newTab.setText(new File(file).getName());
+
+            try {
+                SubApplicationContent content = getSubAppContent().newInstance(); // TODO: Konstruktor kann nicht gefunden werden.
+                newTab.setContent(content.getRoot());
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
             openFiles.put(file, newTab);
 
         } else {
@@ -147,6 +159,7 @@ public abstract class BrowserApplication extends SubApplication {
     }
 
     public abstract void save();
+
 
     //////////////////////////////////////////////
     //                                          //
@@ -161,4 +174,5 @@ public abstract class BrowserApplication extends SubApplication {
     public BrowserConfig getConfig() {
         return config;
     }
+
 }

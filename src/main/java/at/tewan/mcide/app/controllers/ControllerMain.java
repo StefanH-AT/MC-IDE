@@ -93,7 +93,6 @@ public class ControllerMain implements Initializable {
      * @return Die aktive SubApplication; null wenn keine offen ist (Was nicht möglich ist aber egal Java will dass ich irgendwas zurückgebe also mach ich das auch okay beschuldige nicht mich :'( )
      */
     private SubApplication getActiveSubApp() {
-        //return null; // TODO: Den scheiß coden
         for(SubApplication subApplication : subApplications)
             if(subApplication.getTab().isSelected())
                 return subApplication;

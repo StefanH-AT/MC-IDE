@@ -1,18 +1,6 @@
 package at.tewan.mcide.app.controllers;
 
-import at.tewan.mcide.project.Project;
-import at.tewan.mcide.util.Icons;
-import at.tewan.mcide.util.Util;
-import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.*;
 
 /**
  * Abstrakte Klasse, die einen File browser implementiert.
@@ -106,7 +94,7 @@ public abstract class ControllerBrowser implements Initializable {
                     String filePath = f.toString();
                     String cutPath = filePath.replace(path.toString(), "").substring(1);
 
-                    TreeItem<String> leaf = new TreeItem<String>(cutPath, Icons.getIcon("file"));
+                    TreeItem<String> leaf = new TreeItem<String>(cutPath, ImageUtil.getIcon("file"));
 
                     fileMap.put(leaf, f);
 

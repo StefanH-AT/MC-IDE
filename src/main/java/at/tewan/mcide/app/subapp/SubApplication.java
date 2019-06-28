@@ -1,9 +1,6 @@
 package at.tewan.mcide.app.subapp;
 
-import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.SubScene;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 
@@ -14,6 +11,8 @@ public abstract class SubApplication {
 
     private Tab tab;
     private AnchorPane pane;
+
+    private Class<? extends SubApplicationContent> subAppContent;
 
     public SubApplication() {
         this("");
@@ -30,8 +29,12 @@ public abstract class SubApplication {
         pane.setPrefWidth(Long.MAX_VALUE);
         pane.setPrefHeight(Long.MAX_VALUE);
 
-        create();
+        subAppContent = getApplicationContent();
 
+    }
+
+    public Class<? extends SubApplicationContent> getSubAppContent() {
+        return subAppContent;
     }
 
     protected AnchorPane getRoot() {
@@ -50,7 +53,7 @@ public abstract class SubApplication {
         tab.setText(name);
     }
 
-    public abstract void create();
+    public abstract Class<? extends SubApplicationContent> getApplicationContent();
 
     @Target(ElementType.TYPE)
     public @interface SubApp {
