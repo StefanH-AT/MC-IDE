@@ -1,7 +1,7 @@
 package at.tewan.mcide.app.controls;
 
 import at.tewan.mcide.app.subapp.BrowserApplication;
-import at.tewan.mcide.app.subapps.BrowserConfig;
+import at.tewan.mcide.app.subapp.BrowserConfig;
 import at.tewan.mcide.project.Project;
 import at.tewan.mcide.util.FileUtil;
 import at.tewan.mcide.util.ImageUtil;

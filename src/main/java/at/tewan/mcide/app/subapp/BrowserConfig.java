@@ -1,4 +1,4 @@
-package at.tewan.mcide.app.subapps;
+package at.tewan.mcide.app.subapp;
 
 import at.tewan.mcide.enums.PackType;
 

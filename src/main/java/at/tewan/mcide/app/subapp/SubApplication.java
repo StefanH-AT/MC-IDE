@@ -18,7 +18,7 @@ public abstract class SubApplication {
         this("");
     }
 
-    public SubApplication(String displayName) {
+    protected SubApplication(String displayName) {
 
         System.out.println("Loading subapplication '" + displayName + "'");
 
@@ -33,7 +33,7 @@ public abstract class SubApplication {
 
     }
 
-    public Class<? extends SubApplicationContent> getSubAppContent() {
+    protected Class<? extends SubApplicationContent> getSubAppContent() {
         return subAppContent;
     }
 

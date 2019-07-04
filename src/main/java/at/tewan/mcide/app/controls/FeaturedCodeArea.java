@@ -4,6 +4,10 @@ import at.tewan.mcide.mcfunction.Syntax;
 import javafx.scene.input.ScrollEvent;
 import org.fxmisc.richtext.LineNumberFactory;
 
+/**
+ * CodeArea mit Zoomen und Zeilenanzahl
+ *
+ */
 public class FeaturedCodeArea extends SyntaxArea {
 
     private int fontSize = 14;

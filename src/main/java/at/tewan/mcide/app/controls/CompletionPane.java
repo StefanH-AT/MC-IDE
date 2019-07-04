@@ -78,6 +78,7 @@ public class CompletionPane extends VBox {
 
         determineContext(area.getText(area.getCurrentParagraph()));
 
+        // Wenn completions vorhanden sind, soll die CompletionPane angezeigt werden
         if(completions.size() > 0) {
             completionListView.getSelectionModel().select(0);
             setVisible(true);
@@ -87,6 +88,7 @@ public class CompletionPane extends VBox {
 
     public void hide() {
         setVisible(false);
+        area.requestFocus();
     }
 
     public void toggle() {
@@ -114,7 +116,7 @@ public class CompletionPane extends VBox {
 
         // Zeile leer, neuen Command anfangen
         if(line.trim().isEmpty()) {
-            //completions.addAll(Commands.getCommands().keySet());
+            completions.addAll(Commands.getCommands().keySet());
             addToCompletions(Commands.getCommands().values().toArray(new CommandNode[Commands.getCommands().size()]));
             return;
         }

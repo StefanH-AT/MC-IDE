@@ -1,7 +1,6 @@
 package at.tewan.mcide.app.subapp;
 
 import at.tewan.mcide.app.controls.BrowserTab;
-import at.tewan.mcide.app.subapps.BrowserConfig;
 import at.tewan.mcide.enums.PackType;
 import at.tewan.mcide.project.Project;
 import javafx.collections.FXCollections;
@@ -10,8 +9,6 @@ import javafx.collections.MapChangeListener;
 import javafx.collections.ObservableMap;
 import javafx.geometry.Orientation;
 import javafx.geometry.Side;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -19,7 +16,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 
 import static at.tewan.mcide.enums.PackType.*;
 
@@ -138,27 +134,44 @@ public abstract class BrowserApplication extends SubApplication {
     //                                          //
     //////////////////////////////////////////////
 
-    public void openFile(String file) {
+    public void openFile(String filePath) {
+
+        File file = new File(filePath);
 
         if(!openFiles.keySet().contains(file)) {
             Tab newTab = new Tab();
-            newTab.setText(new File(file).getName());
+            newTab.setText(file.getName());
 
             try {
-                SubApplicationContent content = getSubAppContent().newInstance(); // TODO: Konstruktor kann nicht gefunden werden.
-                newTab.setContent(content.getRoot());
+
+                if(getSubAppContent() != null) {
+                    // SubAppContent Klasse erstellen
+                    SubApplicationContent subAppContent = getSubAppContent().newInstance();
+
+                    // Initialisieren
+                    subAppContent.onCreate(file);
+
+                    // Root Object als Content des Tabs setzen
+                    newTab.setContent(subAppContent.getRoot());
+
+                    subAppContent.postCreate();
+                }
+
+
             } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
 
-            openFiles.put(file, newTab);
+            openFiles.put(filePath, newTab);
 
         } else {
             System.out.println(file + " is already opened");
         }
     }
 
-    public abstract void save();
+    public void save() {
+        // TODO: Aktive SubApp suchen und speichern
+    }
 
 
     //////////////////////////////////////////////
