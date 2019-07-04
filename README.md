@@ -1,6 +1,6 @@
 # MC-IDE
 
-Hi, this open source project is Java desktop application, made to assist in the creation of datapacks and resource packs for Minecraft.
+Hi, this open source project is a Java desktop application, made to assist in the creation of datapacks and resource packs for Minecraft.
 
 Planned features:
 * mcfunction editor with full code completion. 70%
