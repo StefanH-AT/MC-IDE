@@ -4,6 +4,7 @@ import at.tewan.mcide.Resources;
 import at.tewan.mcide.mcfiles.PackDefinition;
 import at.tewan.mcide.project.json.ProjectConfig;
 import at.tewan.mcide.settings.GlobalSettings;
+import at.tewan.mcide.util.FileUtil;
 import com.google.gson.Gson;
 
 import java.io.*;
@@ -69,7 +70,7 @@ public class Project {
     public static void newProject(String name, String author, String... namespaces) {
 
         // Neues Projekt erstellen und Attribute setzen
-        Project project = new Project(getProjectRoot(name.toLowerCase()));
+        Project project = new Project(getProjectConfigFile(getProjectRoot(name.toLowerCase())));
         ProjectConfig config = new ProjectConfig();
         config.setName(name);
         config.setAuthor(author);
@@ -209,7 +210,7 @@ public class Project {
     }
 
     public static File getProjectConfigFile(File projectRoot) {
-        return new File(projectRoot.toString().concat(PROJECT_CONFIG_FILE_NAME));
+        return FileUtil.constructDirectory(projectRoot.toString(), PROJECT_CONFIG_FILE_NAME);
     }
 
     public static File getCurrentProjectConfigFile() {
@@ -217,7 +218,7 @@ public class Project {
     }
 
     public static File getProjectRoot(String projectDirectoryName) {
-        return new File(Resources.getWorkspaceDir().toString() + projectDirectoryName.concat("/"));
+        return FileUtil.constructDirectory(Resources.getWorkspaceDir().toString(), projectDirectoryName);
     }
 
     public static File getCurrentProjectResourceDir() {

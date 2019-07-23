@@ -48,7 +48,7 @@ public class LauncherApplication extends Application {
         recentProjects = new ListView<>();
         openProject = new Button("Browse Project");
         newProject = new Button("New Project");
-        banner = new ImageView();
+        banner = ImageUtil.getImageView("graphics/launcher_banner");
 
         openProject.setMaxWidth(Long.MAX_VALUE);
         openProject.setPrefHeight(50);
@@ -58,7 +58,6 @@ public class LauncherApplication extends Application {
         newProject.setPrefHeight(50);
         newProject.setOnAction(newProjectHandler);
 
-        banner.setImage(ImageUtil.getImage("graphics/launcher_banner"));
         banner.setFitWidth(600);
         banner.setFitHeight(240);
 
@@ -68,7 +67,7 @@ public class LauncherApplication extends Application {
         tipsPane.getStyleClass().add("tips-box");
         tipsPane.setPadding(new Insets(10));
 
-        tipsLabel = new Label("hat wer mein ds gesehn?");
+        tipsLabel = new Label("Nehehehehehehehehehe");
         tipsPane.getChildren().add(tipsLabel);
 
         recentProjects.setPrefSize(600, 400);

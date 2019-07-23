@@ -7,9 +7,12 @@ import at.tewan.mcide.util.FileUtil;
 import at.tewan.mcide.util.ImageUtil;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.util.Optional;
+
+import static at.tewan.mcide.util.ImageUtil.*;
 
 public class BrowserTab extends Tab {
 
@@ -28,18 +31,22 @@ public class BrowserTab extends Tab {
 
         treeView.setRoot(treeRoot);
         treeView.setShowRoot(false);
+        treeView.getStyleClass().addAll("browser-view");
 
         setContent(treeView);
         setText(namespace);
         setClosable(false);
 
-        // Das alles brauch ich um ein Click Event vom TreeItem abzufangen...
+        // Datei öffnen wenn Datei im Browser doppelklickt werden
         treeView.setCellFactory(tree -> {
             BrowserCell cell = new BrowserCell();
             cell.setOnMouseClicked(event -> {
                 if(event.getClickCount() == 2) {
-                    if (cell.getTreeItem() instanceof BrowserFileItem)
-                        app.openFile(((BrowserFileItem) cell.getTreeItem()).getFile().toString());
+                    BrowserItem item = (BrowserItem) cell.getTreeItem();
+
+                    if(item.isFile())
+                        app.openFile(item.getFile().toString());
+
                 }
             });
 
@@ -81,7 +88,8 @@ public class BrowserTab extends Tab {
     private void addDirectoryItemsToTree(File currentDir, TreeItem<String> currentItem) {
 
         // Jetziges Directory hinzufügen
-        TreeItem<String> currentDirItem = new TreeItem<>(currentDir.getName());
+        BrowserItem currentDirItem = new BrowserItem(currentDir.getName());
+        currentDirItem.setFile(currentDir);
         currentDirItem.setExpanded(true);
         currentItem.getChildren().add(currentDirItem);
 
@@ -90,7 +98,7 @@ public class BrowserTab extends Tab {
             if(currentFile.isDirectory()) {
                 addDirectoryItemsToTree(currentFile, currentDirItem);
             } else if(currentFile.isFile()){
-                BrowserFileItem item = new BrowserFileItem(currentFile.getName(), ImageUtil.getIcon("file"));
+                BrowserItem item = new BrowserItem(currentFile.getName());
                 item.setFile(currentFile);
                 currentDirItem.getChildren().add(item);
             }
@@ -114,15 +122,15 @@ public class BrowserTab extends Tab {
     //                                          //
     //////////////////////////////////////////////
 
-    public class BrowserFileItem extends TreeItem<String> {
+    public class BrowserItem extends TreeItem<String> {
 
         private File file;
 
-        public BrowserFileItem(String value) {
+        public BrowserItem(String value) {
             super(value);
         }
 
-        public BrowserFileItem(String value, Node graphic) {
+        public BrowserItem(String value, Node graphic) {
             super(value, graphic);
         }
 
@@ -133,48 +141,72 @@ public class BrowserTab extends Tab {
         public File getFile() {
             return file;
         }
+
+        public boolean isFile() {
+            return getFile().isFile();
+        }
+
+        public boolean isDirectory() {
+            return getFile().isDirectory();
+        }
     }
 
     private class BrowserCell extends TreeCell<String> {
         @Override
         protected void updateItem(String item, boolean empty) {
             super.updateItem(item, empty);
-            if(empty)
+
+            BrowserItem browserItem = (BrowserItem) getTreeItem();
+
+            // Updating Cell text and graphics
+            if(empty) {
                 setText(null);
-            else
+                setGraphic(null);
+            } else {
                 setText(item);
 
-            ContextMenu menu = new ContextMenu();
+                if(browserItem.isFile()) {
+                    setGraphic(asImageView(getIcon("file")));
+                } else if(browserItem.isDirectory()) {
+                    setGraphic(asImageView(getIcon("folder")));
+                }
 
-            MenuItem itemDelete = new MenuItem("Delete");
-            MenuItem itemRename = new MenuItem("Rename");
 
-            itemDelete.setOnAction(event -> delete());
-            itemRename.setOnAction(event -> rename());
+                // Adding context menus
+                ContextMenu menu = new ContextMenu();
 
-            menu.getItems().addAll(itemDelete, itemRename);
+                MenuItem itemDelete = new MenuItem("Delete");
+                MenuItem itemRename = new MenuItem("Rename");
 
-            if(getTreeItem() instanceof BrowserFileItem) {
-                MenuItem itemOpenInEditor = new MenuItem("Open in Notepad");
-                itemOpenInEditor.setOnAction(event -> openInSystemEditor());
+                itemDelete.setOnAction(event -> delete());
+                itemRename.setOnAction(event -> rename());
 
-                menu.getItems().add(itemOpenInEditor);
-            } else {
-                Menu itemNew = new Menu("New");
-                MenuItem itemNewFolder = new MenuItem("Folder");
+                menu.getItems().addAll(itemDelete, itemRename);
 
-                // TODO: Filetypes wie .mcfunction .json erstellen können
-                MenuItem itemNewFile = new MenuItem("File");
+                if(browserItem.isFile()) {
+                    MenuItem itemOpenInEditor = new MenuItem("Open in Notepad");
+                    itemOpenInEditor.setOnAction(event -> openInSystemEditor());
 
-                itemNewFolder.setOnAction(event -> newFolder());
-                itemNewFile.setOnAction(event -> newFile());
+                    menu.getItems().add(itemOpenInEditor);
+                } else if(browserItem.isDirectory()) {
+                    Menu itemNew = new Menu("New");
+                    MenuItem itemNewFolder = new MenuItem("Folder");
 
-                itemNew.getItems().addAll(itemNewFolder, itemNewFile);
-                menu.getItems().addAll(itemNew);
+                    // TODO: Filetypes wie .mcfunction .json erstellen können
+                    MenuItem itemNewFile = new MenuItem("File");
 
+                    itemNewFolder.setOnAction(event -> newFolder());
+                    itemNewFile.setOnAction(event -> newFile());
+
+                    itemNew.getItems().addAll(itemNewFolder, itemNewFile);
+                    menu.getItems().addAll(itemNew);
+
+                }
+
+                setContextMenu(menu);
             }
 
-            setContextMenu(menu);
+
 
 
         }

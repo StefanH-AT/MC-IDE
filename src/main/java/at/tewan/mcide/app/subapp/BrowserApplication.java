@@ -83,7 +83,11 @@ public abstract class BrowserApplication extends SubApplication {
 
             if(change.wasAdded()) {
                 System.out.println("-> " + change.getKey());
-                fileTabPane.getTabs().add(change.getValueAdded());
+
+                Tab newTab = change.getValueAdded();
+
+                fileTabPane.getTabs().add(newTab);
+                fileTabPane.getSelectionModel().select(newTab);
             } else {
                 System.out.println("<- " + change.getKey());
                 fileTabPane.getTabs().remove(change.getValueRemoved());
@@ -145,6 +149,7 @@ public abstract class BrowserApplication extends SubApplication {
             try {
 
                 if(getSubAppContent() != null) {
+
                     // SubAppContent Klasse erstellen
                     SubApplicationContent subAppContent = getSubAppContent().newInstance();
 

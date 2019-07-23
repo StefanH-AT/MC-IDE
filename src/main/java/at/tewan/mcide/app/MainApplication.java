@@ -2,6 +2,7 @@ package at.tewan.mcide.app;
 
 import at.tewan.mcide.Resources;
 import at.tewan.mcide.project.Project;
+import at.tewan.mcide.util.ImageUtil;
 import at.tewan.mcide.util.Themes;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -39,7 +40,7 @@ public class MainApplication extends Application {
 
         primaryStage.setMaximized(true);
         primaryStage.setTitle("MC-IDE");
-        primaryStage.getIcons().add(new Image(Resources.getResource("img/icon.png")));
+        primaryStage.getIcons().add(ImageUtil.getImage("icon"));
 
         Parent root = Resources.getFXML("main");
         root.getStylesheets().add(Themes.getCurrentTheme());

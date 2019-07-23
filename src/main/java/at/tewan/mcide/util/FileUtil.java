@@ -1,6 +1,7 @@
 package at.tewan.mcide.util;
 
 import java.io.File;
+import java.nio.file.Files;
 
 public class FileUtil {
 
@@ -29,7 +30,7 @@ public class FileUtil {
         File returnedFile = new File(returnedFilePath);
 
         if(!returnedFile.exists()) {
-            throw new FileException("Directory '" + returnedFilePath + "' does NOT exist!");
+            returnedFile.mkdir();
         }
 
         if(returnedFile.isFile()) {

@@ -37,7 +37,11 @@ public class ControllerNewProjectDialog implements Initializable {
     private void addnamespace() {
         ObservableList<String> list = namespaceList.getItems();
 
-        list.add(namespaceInput.getText());
+        if(!list.contains(namespaceInput.getText())) { // Only add namespace if it doesn't already exist
+            list.add(namespaceInput.getText());
+
+            namespaceInput.clear();
+        }
     }
 
     @FXML

@@ -141,6 +141,10 @@
     -fx-border-color: -fx-color-border;
 }
 
+.browser-view .tree-cell {
+    -fx-border-color: none;
+}
+
 #completion-pane {
     -fx-background-color: -fx-color-widget;
 }
@@ -179,7 +183,7 @@
     -fx-background-color: -fx-color-widget;
 }
 
-.check-box:checked > .box > .mark {
+.check-box:selected > .box > .mark {
     -fx-background-color: -fx-color-text;
 }
 
@@ -206,4 +210,8 @@
 .tips-box {
     -fx-border-color: -fx-color-border;
     -fx-border-width: 2;
+}
+
+.border-error {
+    -fx-border-color: -fx-color-error;
 }
