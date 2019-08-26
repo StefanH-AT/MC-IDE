@@ -28,5 +28,8 @@ JSON Parser: [GSON](https://github.com/google/gson)
 ### Update 25.7.2019
 > I'm refactoring major parts of the system right now. These internal changes allow me to then create the individual sub applications faster, better and more consistantly.
 
+### Update 26.8.2019
+> Project is halted temporarily to focus more on Portal: Revolution and [AndroidMapper](https://github.com/SpyceTewan/AndroidMapper). **MC-IDE is not dead!** I still have motivation to work on it, but my priorities shifted.
+
 
 <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> 
